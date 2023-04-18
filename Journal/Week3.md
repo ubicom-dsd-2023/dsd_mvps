@@ -25,3 +25,6 @@ Functional:
  12.	The system should integrate into the Server.
  13.	The system should get the data from the API REST.
  14.	The system should have a help page for the users.
+
+## Use Case Diagram
+![Use Case Diagram](https://i.imgur.com/7h9FnBC.jpg)

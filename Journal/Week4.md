@@ -2,3 +2,8 @@
 
  - Finishing the class diagram;
 
+
+## Class Diagram
+![Class Diagram](https://i.imgur.com/FhuWpWz.jpg)
+
+- Updates to Class Diagram with Bob information.

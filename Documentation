@@ -1,0 +1,26 @@
+## Documentation
+  - In this file we will document the methods for the Web Application, this methods are in our Class Diagram in Journal/Week4.
+    
+  * Authentication - Login: this method will be used to Log in the manager in the Web application. For this we will need a name and a password, if the both parameters are correct we will change the IsLoged variable to true and the user will be reallocated to the Main Page, if any of the parameters are wrong we will send a message saying "No account was found, maybe the password or the name are wrong!". the data will be sent via the API
+  
+  public void Login(string name, string password){
+    if(correct parameters) //user will be log in, change IsLoged to true, and send the user to the Main Page
+    
+    if(wrong parametes) //Send message to user
+  }
+    
+  * Authentication - Logout: this method will be used to Log the User out. For this we will need an Id of the user that is Log in. We will change the IsLoged variable to False and the user will be redirect to the Main Page without being loged. the data will be sent via the API
+  
+  public void Logout(int id ){ //User Id
+  //Change IsLoged variable to False and redirect the User to the Main Page
+  //Update the database
+  
+  }  
+   
+  * Authentication - Register: This method will be used to add an Manager. After fill all the parameters the person will click in the Regiser button. If theres an user with the same name the person will need to write another name, if theres not any user with the User will be created. the data will be sent via the API
+  
+  public void Register(string name,string email,string password,Date birthdate){
+    if(name is already chosen) //Need to write name again
+    
+    if(Everything goes well) //Regitster user in db, Log user and the user will be reallocated to the Main Page
+  }

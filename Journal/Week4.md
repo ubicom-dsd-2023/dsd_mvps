@@ -4,6 +4,6 @@
 
 
 ## Class Diagram
-![Class Diagram](https://i.imgur.com/PK19rLP.png)
+![Class Diagram](https://i.imgur.com/FP4Mnzu.png)
 
 - Updates to Class Diagram with the additional information Bob gave. 

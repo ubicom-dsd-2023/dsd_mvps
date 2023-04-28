@@ -3,7 +3,7 @@
  - Doing the mockups for the UI.
  - Finishing the documentation for the project.
 
-## Class Diagram
+## Mockups
 ![Image 1](https://i.imgur.com/MrMHxIa.png)
 ![Image 2](https://i.imgur.com/FXcgsFO.png)
 ![Image 3](https://i.imgur.com/945XS4y.png)

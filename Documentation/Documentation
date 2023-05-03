@@ -2,22 +2,27 @@
   - In this file we will document the methods for the Web Application, this methods are in our Class Diagram in Journal/Week4.
   - The gets , sets and constructor of classes need to be implemented too.
     
-
+**Page: sign-in.html**
 * Authentication  Function Name: Login(email: str, password: str) -> bool -  
 This method will be used to Log in the manager in the Web application. 
 Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False.
   
-  public bool Login(string email, string password){
+  OnClick() function
+  
+  public bool Login(string email, string password){ 
     if(correct parameters) //user will be logged, change IsLoged to true, and send the user to the Main Page
     
     if(wrong parametes or state 0) //Send message to user 
   }
     
+**Pages: dashboard.html, profile.html, tables.html**
  * Authentication - Logout:(userId)
 Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False 
 and the user will be redirect to the Main Page without being Logged.
   
-  public void Logout(int int ){ //User Id
+  OnClick() function 
+  
+  public void Logout(int int ){ //User Id 
   //Change IsLoged variable to False and redirect the User to the Main Page
   //Update the database
   
@@ -40,12 +45,15 @@ and the user will be redirect to the Main Page without being Logged.
    **/
   
   
+  **Page: edit.html**
   *Manager - Edit User  Function Name: EditUser(userId: int, name: str, email: str, password: str, birthdate: date) -> bool
 
 Description: The Edit_User function takes five parameters, userId, name, email, password, and birthdate, and sends them to the database via APIRest to update the user's account.
 The function then receives a response from the APIRest, which indicates whether the update was successful or not.
 
 bool: A boolean value representing whether the update was successful or not.
+
+OnClick() funtion
 
 public bool Edit_User(userId: str, name: str, email: str, password: str, birthdate: date ){ 
   //Send message edit occured sucessefuly
@@ -55,7 +63,12 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
   
   }  
   
+  
+  **Page: edit.html**
+  
   Description: The Delete_User function changes the state of a Manager to 0
+  
+  OnClick() function
   
   public bool Delete_User(userId: int){ 
   //Send message edit occured sucessefuly
@@ -65,7 +78,11 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
   
   }  
   
+  **Page:addUser.html**
+  
    Description: The Add_User function creates a user in the database 
+  
+  OnClick() function
   
   public bool Add_User(userId: int, name: str, email: str, password: str, birthdate: date){ 
   //Send message edit occured sucessefuly
@@ -83,7 +100,10 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
    * @param {string} log - An action performed on the App.
    **/
    
+   
    Description: The Write_Logs function creates the log in the database
+   
+   It will be called in every event, for example if we create a new user this method will be called after that.
    
    public void Write_Logs(string log){ 
   //Update the database and create the log
@@ -93,7 +113,11 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
   }
   
   
+  **Page: seeLogs.html**
+  
    Description: The See_Logs function lists the logs from the most recent to the oldest
+   
+   OnLoad() function
    
   public void See_Logs(string log){ 
   //List the logs
@@ -113,7 +137,11 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
    * @param {string} Motiom - The chart's motion settings (e.g., animation, transition, etc.).
   **/
   
+  **Page: table.html**
+  
   Description: The Filter_By_Name function shows the Manager the chart with the name he wrote
+  
+  OnChange() function
   public void Filter_By_Name(string name){ 
   //Show chart by name
   
@@ -121,8 +149,9 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
   
   }
   
-  
+  **Page: table.html**
    Description: The Filter_By_Name function shows the Manager the chart with the name he wrote
+    OnChange() function
   public void Filter_By_Name(string type){ 
   //Show chart by type
   

@@ -28,24 +28,9 @@ Will:
  - Tester
 
 
-## System Requirements Specification (SRS)
-Not functional:
-
- 1. Language: HTML, CSS, JavaScript and Ajax
- 2. Style: Bootstrap.
- 3. Made for Chrome, Firefox, Opera, Brave, ...
- 4. Each page must load within 3 seconds.
- 5.	White or Dark Mode.
-
-
-Functional:
-
- 1. Login Page
- 2. Logout Page
- 3. Register Page
- 4. View Charts (What Kinds of charts?) Exemples: Predictions, Data Storage in Database, other stuff
- 5. Send commands to server
- 6. Filter Data: By Name, Preference
- 7. Integrate to Database
-
-## 
+## Change Log
+ - create requirement analysis 3.5.2023 -- 3.12.2023
+ - update requirement analysis 3.12.2023 -- 3.19.2023
+ - update requirement analysis 3.19.2023 -- 3.26.2023
+ - update requirement analysis and finish some of the design of HTMLs 3.26.2023 -- 4.2.2023
+ - finish the whole requirement analysis and consult with other groups 4.2.2023 -- 4.9.2023

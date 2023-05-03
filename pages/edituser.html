@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+        .title{
+            text-align: center;
+        }
+		.container {
+			margin: 0 auto;
+			width: 40vb; /*Setting the container width*/
+			background-color: rgb(174, 174, 174); /*Sets the container's background color*/
+		}
+
+	</style>
+</head>
+<body>
+    <div class = "container">
+        <h3 class="title">Edit Users</h3>
+        <form>
+            <table>
+                <tr>
+                    <td align="right"><label for="name">Name: </label></td>
+                    <td><input type="text" id="name" name="name" required ><br></td>
+                </tr>
+                <tr>
+                    <td align="right"><label for="email">Email: </label></td>
+                    <td><input type="email" id="email" name="email" required><br></td>
+                </tr>
+                <tr>
+                    <td align="right"><label for="birthday">Birthday: </label></td>
+                    <td><input type="date" id="birthday" name="birthday" required><br></td>
+                </tr>
+                <tr>
+                    <td align="right"><label for="new_password">New Password: </label></td>
+                    <td><input type="password" id="new_password" name="new_password" required><br></td>
+                </tr>
+                <tr>
+                    <td align="right"><button type="button" onclick="saveChanges()">Save Changes</button></td>
+                    <td><button type="button" onclick="deleteUser()">Delete User</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+      
+      <script>
+        function saveChanges() {
+          // get form data
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var birthday = document.getElementById("birthday").value;
+          var new_password = document.getElementById("new_password").value;
+      
+          // update data
+      
+          // tip save success
+          alert("save successfully!");
+        }
+      
+        function deleteUser() {
+          // delete user
+      
+          // tip delete successfully
+          alert("delete successfully!");
+        }
+      </script>
+</body>
+</html>

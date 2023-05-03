@@ -150,8 +150,10 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
   }
   
   **Page: table.html**
+  
    Description: The Filter_By_Name function shows the Manager the chart with the name he wrote
-    OnChange() function
+   
+   OnChange() function
   public void Filter_By_Name(string type){ 
   //Show chart by type
   
@@ -162,16 +164,25 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
   
   Data Visualization Class: No attributes
   
+  
+  **Page: tables.html**
+  
    Description: The Get_Data function sends data via Api
+   
+ OnLoad() function
+ 
  public void Get_Data(){ 
   //Get Data of Motion Class from the API
   
   if(none found) //Show error message 
   
     Description: The Post_Data function sends data via Api
+    
+    
+   **Page: tables.html**
  public void Post_Data(){ 
   //Send Data to the database via Api
-  
+   OnClick() sends the request when the user clicks to go to the tables.html page
   if(none found) //Show error message 
   
   MotionFrame : Only attributes

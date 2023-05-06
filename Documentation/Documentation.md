@@ -94,6 +94,7 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
   }  
   
   * Logs Class : Parameters
+ 
   class Logs {
   /**
    * Constructor for the Logs class, initializes the manager object with the given attributes.
@@ -181,7 +182,8 @@ public bool Edit_User(userId: str, name: str, email: str, password: str, birthda
     
     
    **Page: tables.html**
- public void Post_Data(){ 
+
+public void Post_Data(){ 
   //Send Data to the database via Api
    OnClick() sends the request when the user clicks to go to the tables.html page
   if(none found) //Show error message 

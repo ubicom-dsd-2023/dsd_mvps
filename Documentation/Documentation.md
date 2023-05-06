@@ -46,7 +46,8 @@ and the user will be redirect to the Main Page without being Logged.
   
   
   **Page: edit.html**
-  *Manager - Edit User  Function Name: EditUser(userId: int, name: str, email: str, password: str, birthdate: date) -> bool
+
+Manager - Edit User  Function Name: EditUser(userId: int, name: str, email: str, password: str, birthdate: date) -> bool
 
 Description: The Edit_User function takes five parameters, userId, name, email, password, and birthdate, and sends them to the database via APIRest to update the user's account.
 The function then receives a response from the APIRest, which indicates whether the update was successful or not.

@@ -24,10 +24,11 @@ Correct Operation: User will be logged out, change IsLoged to false, and send th
 Wrong Operation: Send message to user.
 Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False and the user will be redirect to the Main Page without being Logged.
 
-  
+ 
+ 
   * Manager Class : Parameters
   class Manager {
-  /**
+  
    * Constructor for the Manager class, initializes the manager object with the given attributes.
    * @param {int} Id - The manager's unique identifier.
    * @param {string} Name - The manager's full name.

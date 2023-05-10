@@ -3,33 +3,25 @@
   - The gets , sets and constructor of classes need to be implemented too.
     
 **Page: sign-in.html**
-* Authentication  Function Name: Login(email: str, password: str) -> bool -  
-This method will be used to Log in the manager in the Web application. 
-Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False.
-  
-  OnClick() function
-  
-  public bool Login(string email, string password){ 
-    if(correct parameters) //user will be logged, change IsLoged to true, and send the user to the Main Page
-    
-    if(wrong parametes or state 0) //Send message to user 
-  }
+Function Name: Login
+Funtion Type: OnClick() Button: SignIn
+   * @param {string} Email
+   * @param {string} Password
+   * @return {Bool}
+Correct Operation: User will be logged, change IsLoged to true, and send the user to the Main Page
+Wrong Operation: Send message to user, this will happen if the State of the user is 0 or there is no User with that parameters
+Description: This method will be used to Log in the manager in the Web application. Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False.
+
     
 **Pages: dashboard.html, profile.html, tables.html**
- * Authentication - Logout:(userId)
-Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False 
-and the user will be redirect to the Main Page without being Logged.
-  
-  OnClick() function 
-  
-  public void Logout(int int ){ //User Id 
-  //Change IsLoged variable to False and redirect the User to the Main Page
-  //Update the database
-  
-  //If something is wrong send message that a error occured
-  
-  }  
-  
+Function Name: Logout
+Funtion Type: OnClick() Button: Logout
+   * @param {int} Id
+   * @return {bool}
+Correct Operation: User will be logged out, change IsLoged to false, and send the user to the Login Page
+Wrong Operation: Send message to user.
+Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False and the user will be redirect to the Main Page without being Logged.
+
   
   * Manager Class : Parameters
   class Manager {
@@ -42,91 +34,84 @@ and the user will be redirect to the Main Page without being Logged.
    * @param {boolean} isLoged - Indicates if the manager is logged in or not.
    * @param {Date} BirthDate - The manager's birth date.
    * @param {boolean} State - The manager's state (active, inactive).
+   * @param {boolean} Permissions - Admin/Manager(health related person)
    **/
   
-  
-  **Page: edit.html**
+    
+  **Page:Page: addUser.html **
+Function Name: add_User
+Funtion Type: OnClick() Button: Add User
+   * @param {int} Id
+   * @param {string} Name
+   * @param {string} Email
+   * @param {string} Password
+   * @param {date} Birthdate
+   * @return {bool}
+Correct Operation: Send message that the add occurred successfully. 
+Wrong Operation: Send message to user that a error occurred.
+Description: Creates a user in the database. The Manager needs to have Admin permissions.
 
-Manager - Edit User  Function Name: EditUser(userId: int, name: str, email: str, password: str, birthdate: date) -> bool
+**Page:Page: editUser.html **
+Function Name: edit_User
+Funtion Type: OnClick() Button: Edit User
+   * @param {int} Id
+   * @param {string} Name
+   * @param {string} Email
+   * @param {string} Password
+   * @param {date} Birthdate
+   * @return {bool}
+Correct Operation: Send message that the edit occurred successfully. 
+Wrong Operation: Send message to user that a error occurred.
+Description: Updates a user information in the database. The Manager needs to have Admin permissions.
 
-Description: The Edit_User function takes five parameters, userId, name, email, password, and birthdate, and sends them to the database via APIRest to update the user's account.
-The function then receives a response from the APIRest, which indicates whether the update was successful or not.
+  
+   **Page: add_Manager.html** 
+Function Name: add_Manager
+Funtion Type: OnClick() Button: Add User
+   * @param {int} Id
+   * @param {string} Name
+   * @param {string} Email
+   * @param {string} Password
+   * @param {date} Birthdate
+   * @return {bool}
+Correct Operation: Send message Add occurred successfully. 
+Wrong Operation: Send message to user that a error occurred.
+Description: Creates a Manager in the database this can be a health related person or a admin. The Manager that creates other Manager needs to have Admin permissions.
 
-bool: A boolean value representing whether the update was successful or not.
-
-OnClick() funtion
-
-public bool Edit_User(userId: str, name: str, email: str, password: str, birthdate: date ){ 
-  //Send message edit occured sucessefuly
-  //Update the database
-  
-  if(something´s wrong) //Send message to User saying that a error occured
-  
-  }  
-  
-  
-  **Page: edit.html**
-  
-  Description: The Delete_User function changes the state of a Manager to 0
-  
-  OnClick() function
-  
-  public bool Delete_User(userId: int){ 
-  //Send message edit occured sucessefuly
-  //Update the database change State variable to 0
-  
-  if(something´s wrong) //Send message to User saying that a error occured
-  
-  }  
-  
-  **Page:addUser.html**
-  
-   Description: The Add_User function creates a user in the database 
-  
-  OnClick() function
-  
-  public bool Add_User(userId: int, name: str, email: str, password: str, birthdate: date){ 
-  //Send message edit occured sucessefuly
-  //Update the database and create a user
-  
-  if(something´s wrong) //Send message to User saying that a error occured
-  
-  }  
   
   * Logs Class : Parameters
  
   class Logs {
   /**
    * Constructor for the Logs class, initializes the manager object with the given attributes.
-   * @param {int} Id - The manager's unique identifier.
-   * @param {string} log - An action performed on the App.
+   * @param {Date} Timestamp - An action performed on the App.
+   * @param {string} description - An action performed on the App.
+   * @param {User} log - An action performed on the App.
+   * @param {string} type - An action performed on the App.
+   * @param {string} Past_data - An action performed on the App.
+   * @param {string} New_data - An action performed on the App.
    **/
    
-   
-   Description: The Write_Logs function creates the log in the database
-   
-   It will be called in every event, for example if we create a new user this method will be called after that.
-   
-   public void Write_Logs(string log){ 
-  //Update the database and create the log
-  
-  if(something´s wrong) //Send message to User saying that a error occured
-  
-  }
+  **Page: Every Page**
+Function Name: write_Logs
+Funtion Type: It will be called in every event, for example if we create a new user this method will be called after that.
+   * @param {string} log 
+   * @return {bool}
+Correct Operation: Write In the database the action performed in the web app.
+Wrong Operation: 
+Description: Creates the log in the database, of every action that occurs in the web app
+
   
   
-  **Page: seeLogs.html**
-  
-   Description: The See_Logs function lists the logs from the most recent to the oldest
-   
-   OnLoad() function
-   
-  public void See_Logs(string log){ 
-  //List the logs
-  
-  if(something´s wrong) //Send message to User saying that a error occured
-  
-  }
+**Page: Every Page**
+Function Name: write_Logs
+Funtion Type: OnLoad() function
+   * @param {string} log 
+   * @return {bool}
+Correct Operation: Will show the list of Logs that occurred.
+Wrong Operation: Send message that an error occurred.
+Description: Shows the list of logs that occurred recently ,we will have pages, each page will show a list of 10 logs.
+
    
    
   * Charts Class: Parameters

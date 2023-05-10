@@ -6,9 +6,9 @@
 
 Function Name: Login
 Funtion Type: OnClick() Button: SignIn
-   * @param {string} Email*
-   * @param {string} Password*
-   * @return {Bool}*
+   * @param {string} Email
+   * @param {string} Password
+   * @return {Bool}
 Correct Operation: User will be logged, change IsLoged to true, and send the user to the Main Page
 Wrong Operation: Send message to user, this will happen if the State of the user is 0 or there is no User with that parameters
 Description: This method will be used to Log in the manager in the Web application. Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False.

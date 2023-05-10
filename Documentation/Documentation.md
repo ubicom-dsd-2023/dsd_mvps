@@ -3,6 +3,7 @@
   - The gets , sets and constructor of classes need to be implemented too.
     
 **Page: sign-in.html**
+
 Function Name: Login
 Funtion Type: OnClick() Button: SignIn
    * @param {string} Email
@@ -14,6 +15,7 @@ Description: This method will be used to Log in the manager in the Web applicati
 
     
 **Pages: dashboard.html, profile.html, tables.html**
+
 Function Name: Logout
 Funtion Type: OnClick() Button: Logout
    * @param {int} Id

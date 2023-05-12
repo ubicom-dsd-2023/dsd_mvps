@@ -43,7 +43,7 @@ Description: This method will be used to Log the User out. Sends the id via APIR
    **/
   
     
-  **Page:Page: addUser.html **
+  **Page:Page: addUser.html**
 Function Name: add_User<br>
 Funtion Type: OnClick() Button: Add User<br>
    * @param {int} Id<br>
@@ -56,31 +56,31 @@ Correct Operation: Send message that the add occurred successfully. <br>
 Wrong Operation: Send message to user that a error occurred.<br>
 Description: Creates a user in the database. The Manager needs to have Admin permissions.<br>
 
-**Page:Page: editUser.html **
-Function Name: edit_User
-Funtion Type: OnClick() Button: Edit User
-   * @param {int} Id
-   * @param {string} Name
-   * @param {string} Email
-   * @param {string} Password
-   * @param {date} Birthdate
-   * @return {bool}
-Correct Operation: Send message that the edit occurred successfully. 
-Wrong Operation: Send message to user that a error occurred.
+**Page:Page: editUser.html**
+Function Name: edit_User<br>
+Funtion Type: OnClick() Button: Edit User<br>
+   * @param {int} Id<br>
+   * @param {string} Name<br>
+   * @param {string} Email<br><br>
+   * @param {string} Password<br>
+   * @param {date} Birthdate<br>
+   * @return {bool}<br>
+Correct Operation: Send message that the edit occurred successfully. <br>
+Wrong Operation: Send message to user that a error occurred.<br>
 Description: Updates a user information in the database. The Manager needs to have Admin permissions.
 
   
-   **Page: add_Manager.html** 
-Function Name: add_Manager
-Funtion Type: OnClick() Button: Add User
-   * @param {int} Id
-   * @param {string} Name
-   * @param {string} Email
-   * @param {string} Password
-   * @param {date} Birthdate
-   * @return {bool}
-Correct Operation: Send message Add occurred successfully. 
-Wrong Operation: Send message to user that a error occurred.
+   **Page: add_Manager.html** <br>
+Function Name: add_Manager<br>
+Funtion Type: OnClick() Button: Add User<br>
+   * @param {int} Id<br>
+   * @param {string} Name<br>
+   * @param {string} Email<br>
+   * @param {string} Password<br>
+   * @param {date} Birthdate<br>
+   * @return {bool}<br>
+Correct Operation: Send message Add occurred successfully. <br>
+Wrong Operation: Send message to user that a error occurred.<br>
 Description: Creates a Manager in the database this can be a health related person or a admin. The Manager that creates other Manager needs to have Admin permissions.
 
   
@@ -98,23 +98,23 @@ Description: Creates a Manager in the database this can be a health related pers
    **/
    
   **Page: Every Page**
-Function Name: write_Logs
-Funtion Type: It will be called in every event, for example if we create a new user this method will be called after that.
-   * @param {string} log 
-   * @return {bool}
-Correct Operation: Write In the database the action performed in the web app.
-Wrong Operation: 
-Description: Creates the log in the database, of every action that occurs in the web app
+Function Name: write_Logs<br>
+Funtion Type: It will be called in every event, for example if we create a new user this method will be called after that.<br>
+   * @param {string} log <br>
+   * @return {bool}<br>
+Correct Operation: Write In the database the action performed in the web app.<br>
+Wrong Operation: <br>
+Description: Creates the log in the database, of every action that occurs in the web app<br>
 
   
   
-**Page: Every Page**
-Function Name: write_Logs
-Funtion Type: OnLoad() function
-   * @param {string} log 
-   * @return {bool}
-Correct Operation: Will show the list of Logs that occurred.
-Wrong Operation: Send message that an error occurred.
+**Page: Every Page**<br>
+Function Name: write_Logs<br>
+Funtion Type: OnLoad() function<br>
+   * @param {string} log <br>
+   * @return {bool}<br>
+Correct Operation: Will show the list of Logs that occurred.<br>
+Wrong Operation: Send message that an error occurred.<br>
 Description: Shows the list of logs that occurred recently ,we will have pages, each page will show a list of 10 logs.
 
    
@@ -129,54 +129,32 @@ Description: Shows the list of logs that occurred recently ,we will have pages, 
    * @param {string} Motiom - The chart's motion settings (e.g., animation, transition, etc.).
   **/
   
-  **Page: table.html**
   
-  Description: The Filter_By_Name function shows the Manager the chart with the name he wrote
-  
-  OnChange() function
-  public void Filter_By_Name(string name){ 
-  //Show chart by name
-  
-  if(none found) //Show message that any chart was found with that name
-  
-  }
-  
-  **Page: table.html**
-  
-   Description: The Filter_By_Name function shows the Manager the chart with the name he wrote
-   
-   OnChange() function
-  public void Filter_By_Name(string type){ 
-  //Show chart by type
-  
-  if(none found) //Show message that any chart was found with that type
-  
-  }
-   
-  
-  Data Visualization Class: No attributes
-  
-  
-  **Page: tables.html**
-  
-   Description: The Get_Data function sends data via Api
-   
- OnLoad() function
- 
- public void Get_Data(){ 
-  //Get Data of Motion Class from the API
-  
-  if(none found) //Show error message 
-  
-   Description: The Post_Data function sends data via Api
-    
-    
-   **Page: tables.html**
+  **Page: : table.html **<br>
+Function Name Filter_By_Name <br>
+Funtion Type: OnChange() function  (Search bar)<br>
+   * @param {string} name <br>
+Correct Operation: Will show the charts with that name. <br>
+Wrong Operation or no name found: Show message that no charts were found. <br>
+Description: The Filter_By_Name function shows the Manager the chart with the name he wrote.
 
-public void Post_Data(){ 
-  //Send Data to the database via Api
-   OnClick() sends the request when the user clicks to go to the tables.html page
-  if(none found) //Show error message 
+  
+  **Page: : table.html **<br>
+Function Name Filter_By_Type <br>
+Funtion Type: OnChange() function  (Search bar)<br>
+   * @param {string} type <br>
+Correct Operation: Will show the charts with that type. <br>
+Wrong Operation or no type found: Show message that no charts were found. <br>
+Description: The Filter_By_Type function shows the Manager the chart with the name he wrote.
+
+      
+**Page: table.html**<br>
+Function Name Get_Data <br>
+Funtion Type: OnLoad() function  <br>
+Correct Operation: Get Data of Motion Class from the API. <br>
+Wrong Operation or no data found: Show  error message. <br>
+Description: The Get_Data function gets the data via Api
+
   
   MotionFrame : Only attributes
   /**

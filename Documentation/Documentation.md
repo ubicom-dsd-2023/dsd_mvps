@@ -9,19 +9,21 @@ Funtion Type: OnClick() Button: SignIn
    * @param {string} Email
    * @param {string} Password
    * @return {Bool}
-Correct Operation: User will be logged, change IsLoged to true, and send the user to the Main Page
-Wrong Operation: Send message to user, this will happen if the State of the user is 0 or there is no User with that parameters
+Correct Operation: User will be logged, change IsLoged to true, and send the user to the Main Page <br>
+
+Wrong Operation: Send message to user, this will happen if the State of the user is 0 or there is no User with that parameters <br>
+
 Description: This method will be used to Log in the manager in the Web application. Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False.
 
     
 **Pages: dashboard.html, profile.html, tables.html**
 
 Function Name: Logout
-Funtion Type: OnClick() Button: Logout
-   * @param {int} Id
-   * @return {bool}
-Correct Operation: User will be logged out, change IsLoged to false, and send the user to the Login Page
-Wrong Operation: Send message to user.
+Funtion Type: OnClick() Button: Logout<br>
+   * @param {int} Id<br>
+   * @return {bool}<br>
+Correct Operation: User will be logged out, change IsLoged to false, and send the user to the Login Page<br>
+Wrong Operation: Send message to user.<br>
 Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False and the user will be redirect to the Main Page without being Logged.
 
  
@@ -42,17 +44,17 @@ Description: This method will be used to Log the User out. Sends the id via APIR
   
     
   **Page:Page: addUser.html **
-Function Name: add_User
-Funtion Type: OnClick() Button: Add User
-   * @param {int} Id
-   * @param {string} Name
-   * @param {string} Email
-   * @param {string} Password
-   * @param {date} Birthdate
-   * @return {bool}
-Correct Operation: Send message that the add occurred successfully. 
-Wrong Operation: Send message to user that a error occurred.
-Description: Creates a user in the database. The Manager needs to have Admin permissions.
+Function Name: add_User<br>
+Funtion Type: OnClick() Button: Add User<br>
+   * @param {int} Id<br>
+   * @param {string} Name<br>
+   * @param {string} Email<br>
+   * @param {string} Password<br>
+   * @param {date} Birthdate<br>
+   * @return {bool}<br>
+Correct Operation: Send message that the add occurred successfully. <br>
+Wrong Operation: Send message to user that a error occurred.<br>
+Description: Creates a user in the database. The Manager needs to have Admin permissions.<br>
 
 **Page:Page: editUser.html **
 Function Name: edit_User

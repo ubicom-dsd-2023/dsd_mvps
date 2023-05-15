@@ -77,7 +77,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../pages/tables.html">
+          <a class="nav-link active" href="../pages/users.html">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -231,7 +231,8 @@
           </div>
         </div>
         <div id="addBtn" class="col-2 text-end text-nowrap">
-          <a href="../pages/addUser.html"  class="btn bg-gradient-success px-3 mb-0" tabindex="-1" role="button" aria-disabled="true">
+          <a href="../pages/addUser.html" class="btn bg-gradient-success px-3 mb-0" tabindex="-1" role="button"
+            aria-disabled="true">
             <i class="fa-sharp fa-solid fa-plus"></i>
             <span id="addUserText">Add User</span>
           </a>
@@ -241,13 +242,13 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Users Table</h6>
+              <h6>Users</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
-                    <tr>
+                    <tr class="user-select-none">
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">UserID</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
@@ -256,7 +257,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr id="1" class="user-select-none">
+                    <tr id="1">
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
@@ -277,10 +278,14 @@
                         859985116@qq.com
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">More info</span>
+                        <span id="info" class="text-secondary text-xs font-weight-bold p-2">
+                          <i class="fa-solid fa-lg fa-info"></i>
+                        </span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">Edit User</span>
+                        <span id="edit" class="text-secondary text-xs font-weight-bold p-1">
+                          <i class="fa-solid fa-lg fa-edit"></i>
+                        </span>
                       </td>
                     </tr>
                     <tr id="2">
@@ -304,10 +309,14 @@
                         TheBestEmailEver@qq.com
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">More info</span>
+                        <span id="info" class="text-secondary text-xs font-weight-bold p-2">
+                          <i class="fa-solid fa-lg fa-info"></i>
+                        </span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">Edit User</span>
+                        <span id="edit" class="text-secondary text-xs font-weight-bold p-1">
+                          <i class="fa-solid fa-lg fa-edit"></i>
+                        </span>
                       </td>
                     </tr>
                   </tbody>
@@ -374,8 +383,8 @@
     </div>
   </main>
   <!--   Core JS Files   -->
-  <script src="https://code.jquery.com/jquery-3.6.4.slim.js"
-    integrity="sha256-dWvV84T6BhzO4vG6gWhsWVKVoa4lVmLnpBOZh/CAHU4=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript"
+    charset="utf-8"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -392,12 +401,24 @@
   <script>
     $(document).ready(function () {
 
-      $("tbody > tr").on("click", function () {
-        location.href = "/pages/showuser.html?id=" + $(this).attr('id');
+      let id = null;
+
+      $("tbody > tr > td > span").on("click", function () {
+        // TODO: verify if the id is not null or undefined or empty
+        if ($(this).attr('id') === "info") {
+          location.href = "/pages/showuser.html?id=" + id;
+        }
+        else if ($(this).attr('id') === "edit") {
+          location.href = "/pages/edituser.html?id=" + id;
+        }
+        else {
+          //error
+        }
       });
 
       $("tbody > tr").hover(function () {
         $(this).addClass('table-secondary');
+        id = $(this).attr('id');
       }, function () {
         $(this).removeClass('table-secondary');
       });
@@ -409,10 +430,10 @@
         });
       });
 
-      window.onresize = function(event) {
-        if($('#addBtn').width() <= 100){
+      window.onresize = function (event) {
+        if ($('#addBtn').width() <= 100) {
           $('#addUserText').html("");
-        }else{
+        } else {
           $('#addUserText').html("Add User");
         }
       };

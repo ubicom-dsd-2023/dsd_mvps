@@ -77,7 +77,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../pages/tables.html">
+          <a class="nav-link" href="../pages/users.html">
             <div
               class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -191,9 +191,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Users</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Logs</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Users</h6>
+          <h6 class="font-weight-bolder mb-0">Logs</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <ul class="navbar-nav ms-md-auto justify-content-end">
@@ -232,16 +232,18 @@
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0">
                   <thead>
-                    <tr>
+                    <tr class="user-select-none">
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action Made By</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Action Made
+                        By</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date
+                      </th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr id="1" class="user-select-none">
+                    <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
@@ -265,36 +267,40 @@
                         <span class="text-secondary text-xs font-weight-bold">12/05/2023</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">More Info</span>
+                        <span id="1" class="text-secondary text-xs font-weight-bold p-2">
+                          <i class="fa-solid fa-lg fa-info"></i>
+                        </span>
                       </td>
                     </tr>
-                    <tr id="2" class="user-select-none">
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
-                              <!-- <h6 class="mb-0 text-sm">000001</h6> -->
-                              <p class="text-xs text-secondary mb-0">2</p>
-                            </div>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <!-- <h6 class="mb-0 text-sm">000001</h6> -->
+                            <p class="text-xs text-secondary mb-0">2</p>
                           </div>
-                        </td>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Add Manager</h6>
-                              <!-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> -->
-                            </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Add Manager</h6>
+                            <!-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> -->
                           </div>
-                        </td>
-                        <td>
-                          John Michael
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">11/05/2023</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">More Info</span>
-                        </td>
-                      </tr>
+                        </div>
+                      </td>
+                      <td>
+                        John Michael
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">11/05/2023</span>
+                      </td>
+                      <td class="align-middle text-center">
+                        <span id="2" class="text-secondary text-xs font-weight-bold p-2">
+                          <i class="fa-solid fa-lg fa-info"></i>
+                        </span>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -359,8 +365,8 @@
     </div>
   </main>
   <!--   Core JS Files   -->
-  <script src="https://code.jquery.com/jquery-3.6.4.slim.js"
-    integrity="sha256-dWvV84T6BhzO4vG6gWhsWVKVoa4lVmLnpBOZh/CAHU4=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript"
+    charset="utf-8"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -377,8 +383,8 @@
   <script>
     $(document).ready(function () {
 
-      $("tbody > tr").on("click", function () {
-        location.href = "/pages/showuser.html?id=" + $(this).attr('id');
+      $("tbody > tr > td > span").on("click", function () {
+        location.href = "/pages/showlog.html?id=" + $(this).attr('id');
       });
 
       $("tbody > tr").hover(function () {
@@ -394,10 +400,10 @@
         });
       });
 
-      window.onresize = function(event) {
-        if($('#addBtn').width() <= 100){
+      window.onresize = function (event) {
+        if ($('#addBtn').width() <= 100) {
           $('#addUserText').html("");
-        }else{
+        } else {
           $('#addUserText').html("Add User");
         }
       };

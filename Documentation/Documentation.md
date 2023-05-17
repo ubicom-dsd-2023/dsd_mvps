@@ -5,7 +5,8 @@
 **Page: sign-in.html**
 
 Function Name: Login
-Funtion Type: OnClick() Button: SignIn
+![SignIn](./Mockups/Webpage/buttonSignIn.png)
+Function Type: OnClick() Button: SignIn
    * @param {string} Email
    * @param {string} Password
    * @return {Bool}<br>
@@ -18,7 +19,8 @@ Description: This method will be used to Log in the manager in the Web applicati
 **Pages: dashboard.html, profile.html, users.html**
 
 Function Name: Logout
-Funtion Type: OnClick() Button: Logout<br>
+![Logout](./Mockups/Webpage/DashboardLogout.png)
+Function Type: OnClick() Button: Logout<br>
    * @param {int} Id<br>
    * @return {bool}<br>
   
@@ -45,6 +47,7 @@ Description: This method will be used to Log the User out. Sends the id via APIR
     
   **Page:Page: addUser.html**
 Function Name: add_User<br>
+![add_User](./Mockups/Webpage/buttonAddUser.png)
 Funtion Type: OnClick() Button: Add User<br>
    * @param {int} Id<br>
    * @param {string} Name<br>
@@ -57,8 +60,9 @@ Correct Operation: Send message that the add occurred successfully. <br>
 Wrong Operation: Send message to user that a error occurred.<br>
 Description: Creates a user in the database. The Manager needs to have Admin permissions.<br>
 
-**Page:Page: editUser.html**
+**Page: editUser.html**
 Function Name: edit_User<br>
+![edit_User](./Mockups/Webpage/buttonEditUser.png)
 Funtion Type: OnClick() Button: Edit User<br>
    * @param {int} Id<br>
    * @param {string} Name<br>
@@ -66,14 +70,15 @@ Funtion Type: OnClick() Button: Edit User<br>
    * @param {string} Password<br>
    * @param {date} Birthdate<br>
    * @return {bool}<br>
-  
+
 Correct Operation: Send message that the edit occurred successfully. <br>
 Wrong Operation: Send message to user that a error occurred. <br>
 Description: Updates a user information in the database. The Manager needs to have Admin permissions. <br>
 
-  
-   **Page: add_Manager.html** <br>
+
+   **Page: addManager.html** <br>
 Function Name: add_Manager<br>
+![add_Manager](./Mockups/Webpage/buttonAddManager.png)
 Funtion Type: OnClick() Button: Add User<br>
    * @param {int} Id<br>
    * @param {string} Name<br>
@@ -113,7 +118,8 @@ Description: Creates the log in the database, of every action that occurs in the
   
   
 **Page: Every Page**<br>
-Function Name: write_Logs<br>
+Function Name: see_Logs<br>
+![see_Logs](./Mockups/Webpage/Logs.png)
 Funtion Type: OnLoad() function<br>
    * @param {Logs} log <br>
    * @return {bool}<br>
@@ -135,8 +141,9 @@ Description: Shows the list of logs that occurred recently ,we will have pages, 
   **/
   
   
-**Page: : table.html**<br>
+**Page: : users.html, logs.html, manager.html**<br>
 Function Name Filter_By_Name <br>
+![Filter_By_Name](./Mockups/Webpage/filterByName.png)
 Funtion Type: OnChange() function  (Search bar)<br>
    * @param {string} name<br>
 
@@ -145,8 +152,9 @@ Wrong Operation or no name found: Show message that no charts were found. <br>
 Description: The Filter_By_Name function shows the Manager the chart with the name he wrote. <br>
 
   
-**Page: : table.html**
+**Page: : logs.html**
 Function Name Filter_By_Type <br>
+![Filter_By_Type](./Mockups/Webpage/filterByType.png)
 Funtion Type: OnChange() function  (Search bar)<br>
    * @param {string} type<br>
 Correct Operation: Will show the charts with that type. <br>

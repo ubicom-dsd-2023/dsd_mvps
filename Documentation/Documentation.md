@@ -9,10 +9,9 @@ Funtion Type: OnClick() Button: SignIn
    * @param {string} Email
    * @param {string} Password
    * @return {Bool}<br>
+   * 
 Correct Operation: User will be logged, change IsLoged to true, and send the user to the Main Page <br>
-
 Wrong Operation: Send message to user, this will happen if the State of the user is 0 or there is no User with that parameters <br>
-
 Description: This method will be used to Log in the manager in the Web application. Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False. <br>
 
     
@@ -22,6 +21,7 @@ Function Name: Logout
 Funtion Type: OnClick() Button: Logout<br>
    * @param {int} Id<br>
    * @return {bool}<br>
+  
 Correct Operation: User will be logged out, change IsLoged to false, and send the user to the Login Page<br>
 Wrong Operation: Send message to user.<br>
 Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False and the user will be redirect to the Main Page without being Logged. <br>
@@ -52,6 +52,7 @@ Funtion Type: OnClick() Button: Add User<br>
    * @param {string} Password<br>
    * @param {date} Birthdate<br>
    * @return {bool}<br>
+  
 Correct Operation: Send message that the add occurred successfully. <br>
 Wrong Operation: Send message to user that a error occurred.<br>
 Description: Creates a user in the database. The Manager needs to have Admin permissions.<br>
@@ -65,6 +66,7 @@ Funtion Type: OnClick() Button: Edit User<br>
    * @param {string} Password<br>
    * @param {date} Birthdate<br>
    * @return {bool}<br>
+  
 Correct Operation: Send message that the edit occurred successfully. <br>
 Wrong Operation: Send message to user that a error occurred. <br>
 Description: Updates a user information in the database. The Manager needs to have Admin permissions. <br>
@@ -79,6 +81,7 @@ Funtion Type: OnClick() Button: Add User<br>
    * @param {string} Password<br>
    * @param {date} Birthdate<br>
    * @return {bool}<br>
+
 Correct Operation: Send message Add occurred successfully. <br>
 Wrong Operation: Send message to user that a error occurred.<br>
 Description: Creates a Manager in the database this can be a health related person or a admin. The Manager that creates other Manager needs to have Admin permissions. <br>
@@ -102,6 +105,7 @@ Function Name: write_Logs<br>
 Funtion Type: It will be called in every event, for example if we create a new user this method will be called after that.<br>
    * @param {Logs} log <br>
    * @return {bool} <br>
+
 Correct Operation: Write In the database the action performed in the web app.<br>
 Wrong Operation if the database is down: Send message that an error occurred.<br>
 Description: Creates the log in the database, of every action that occurs in the web app<br>
@@ -113,6 +117,7 @@ Function Name: write_Logs<br>
 Funtion Type: OnLoad() function<br>
    * @param {Logs} log <br>
    * @return {bool}<br>
+
 Correct Operation: Will show the list of Logs that occurred.<br>
 Wrong Operation: Send message that an error occurred.<br>
 Description: Shows the list of logs that occurred recently ,we will have pages, each page will show a list of 10 logs.
@@ -133,7 +138,8 @@ Description: Shows the list of logs that occurred recently ,we will have pages, 
 **Page: : table.html**<br>
 Function Name Filter_By_Name <br>
 Funtion Type: OnChange() function  (Search bar)<br>
-   * @param {string} name<br> 
+   * @param {string} name<br>
+
 Correct Operation: Will show the charts with that name. <br>
 Wrong Operation or no name found: Show message that no charts were found. <br>
 Description: The Filter_By_Name function shows the Manager the chart with the name he wrote. <br>

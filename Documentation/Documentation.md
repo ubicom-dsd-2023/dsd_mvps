@@ -133,7 +133,7 @@ Description: Shows the list of logs that occurred recently ,we will have pages, 
   **Page: : table.html**<br>
 Function Name Filter_By_Name <br>
 Funtion Type: OnChange() function  (Search bar)<br>
-   * @param {string} name <br>
+   * @param {string} name
 Correct Operation: Will show the charts with that name. <br>
 Wrong Operation or no name found: Show message that no charts were found. <br>
 Description: The Filter_By_Name function shows the Manager the chart with the name he wrote. <br>
@@ -142,7 +142,7 @@ Description: The Filter_By_Name function shows the Manager the chart with the na
   **Page: : table.html**
 Function Name Filter_By_Type <br>
 Funtion Type: OnChange() function  (Search bar)<br>
-   * @param {string} type <br>
+   * @param {string} type
 Correct Operation: Will show the charts with that type. <br>
 Wrong Operation or no type found: Show message that no charts were found. <br>
 Description: The Filter_By_Type function shows the Manager the chart with the name he wrote. <br>

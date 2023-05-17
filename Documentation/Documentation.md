@@ -30,7 +30,7 @@ Description: This method will be used to Log the User out. Sends the id via APIR
  
   * Manager Class : Parameters
   class Manager {
-  
+  **/
    * Constructor for the Manager class, initializes the manager object with the given attributes.
    * @param {int} Id - The manager's unique identifier.
    * @param {string} Name - The manager's full name.
@@ -87,6 +87,7 @@ Description: Creates a Manager in the database this can be a health related pers
   * Logs Class : Parameters
  
   class Logs {
+  **/
    * Constructor for the Logs class, initializes the manager object with the given attributes.
    * @param {Date} Timestamp
    * @param {string} description
@@ -94,7 +95,7 @@ Description: Creates a Manager in the database this can be a health related pers
    * @param {string} type
    * @param {string} Past_data
    * @param {string} New_data
-  
+  **/
    
   **Page: Every Page**
 Function Name: write_Logs<br>
@@ -119,7 +120,7 @@ Description: Shows the list of logs that occurred recently ,we will have pages, 
    
    
   * Charts Class: Parameters
-  /**
+  **/
   Constructor for the Charts class, initializes the chart object with the given attributes.
    * @param {boolean} isFavorite - Indicates if the chart is marked as a favorite.
    * @param {string} Name - The chart's name.

@@ -252,6 +252,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Admin</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -276,6 +277,11 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold"></span>
                       </td>
+                      <td>
+                        <span id="edit" class="text-secondary text-xs font-weight-bold p-1">
+                          <i class="fa-solid fa-lg fa-edit"></i>
+                        </span>
+                      </td>
                     </tr>
                     <tr id="2">
                       <td>
@@ -298,6 +304,11 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">
                           <i class="fa fa-check"></i>
+                        </span>
+                      </td>
+                      <td>
+                        <span id="edit" class="text-secondary text-xs font-weight-bold p-1">
+                          <i class="fa-solid fa-lg fa-edit"></i>
                         </span>
                       </td>
                     </tr>
@@ -382,6 +393,18 @@
   </script>
   <script>
     $(document).ready(function () {
+
+      let id = null;
+
+      $("tbody > tr > td > span").on("click", function () {
+        // TODO: verify if the id is not null or undefined or empty
+        if ($(this).attr('id') === "edit") {
+          location.href = "/pages/editManager.html?id=" + id;
+        }
+        else {
+          //error
+        }
+      });
 
       $("tbody > tr").hover(function () {
         $(this).addClass('table-secondary');

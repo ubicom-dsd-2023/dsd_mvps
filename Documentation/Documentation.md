@@ -162,14 +162,14 @@ Wrong Operation or no type found: Show message that no charts were found. <br>
 Description: The Filter_By_Type function shows the Manager the chart with the name he wrote. <br>
 
       
-**Page: table.html**
+**Page: users.html**
 Function Name Get_Data <br>
 Funtion Type: OnLoad() function  <br>
 Correct Operation: Get Data of Motion Class from the API. <br>
 Wrong Operation or no data found: Show  error message. <br>
 Description: The Get_Data function gets the data via Api <br>
 
-**Page: table.html**
+**Page: Every Page**
 Function Name Post_Data <br>
 Funtion Type: OnLoad() function  <br>
 Correct Operation: Post Data for the API. <br>

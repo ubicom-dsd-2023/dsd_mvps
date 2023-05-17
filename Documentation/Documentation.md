@@ -13,7 +13,7 @@ Correct Operation: User will be logged, change IsLoged to true, and send the use
 
 Wrong Operation: Send message to user, this will happen if the State of the user is 0 or there is no User with that parameters <br>
 
-Description: This method will be used to Log in the manager in the Web application. Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False.
+Description: This method will be used to Log in the manager in the Web application. Sends to the database via APIRest. If the parameters are correct, the function returns True and change the value of the user IsLoged variable, otherwise, it returns False. <br>
 
     
 **Pages: dashboard.html, profile.html, users.html**
@@ -24,7 +24,7 @@ Funtion Type: OnClick() Button: Logout<br>
    * @return {bool}<br>
 Correct Operation: User will be logged out, change IsLoged to false, and send the user to the Login Page<br>
 Wrong Operation: Send message to user.<br>
-Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False and the user will be redirect to the Main Page without being Logged.
+Description: This method will be used to Log the User out. Sends the id via APIRest to indicate that the user has logged out.  We will change the IsLoged variable to False and the user will be redirect to the Main Page without being Logged. <br>
 
  
  
@@ -66,8 +66,8 @@ Funtion Type: OnClick() Button: Edit User<br>
    * @param {date} Birthdate<br>
    * @return {bool}<br>
 Correct Operation: Send message that the edit occurred successfully. <br>
-Wrong Operation: Send message to user that a error occurred.<br>
-Description: Updates a user information in the database. The Manager needs to have Admin permissions.
+Wrong Operation: Send message to user that a error occurred. <br>
+Description: Updates a user information in the database. The Manager needs to have Admin permissions. <br>
 
   
    **Page: add_Manager.html** <br>
@@ -81,7 +81,7 @@ Funtion Type: OnClick() Button: Add User<br>
    * @return {bool}<br>
 Correct Operation: Send message Add occurred successfully. <br>
 Wrong Operation: Send message to user that a error occurred.<br>
-Description: Creates a Manager in the database this can be a health related person or a admin. The Manager that creates other Manager needs to have Admin permissions.
+Description: Creates a Manager in the database this can be a health related person or a admin. The Manager that creates other Manager needs to have Admin permissions. <br>
 
   
   * Logs Class : Parameters
@@ -101,9 +101,9 @@ Description: Creates a Manager in the database this can be a health related pers
 Function Name: write_Logs<br>
 Funtion Type: It will be called in every event, for example if we create a new user this method will be called after that.<br>
    * @param {Logs} log <br>
-   * @return {bool}<br>
+   * @return {bool} <br>
 Correct Operation: Write In the database the action performed in the web app.<br>
-Wrong Operation: <br>
+Wrong Operation if the database is down: Send message that an error occurred.<br>
 Description: Creates the log in the database, of every action that occurs in the web app<br>
 
   
@@ -136,31 +136,31 @@ Funtion Type: OnChange() function  (Search bar)<br>
    * @param {string} name <br>
 Correct Operation: Will show the charts with that name. <br>
 Wrong Operation or no name found: Show message that no charts were found. <br>
-Description: The Filter_By_Name function shows the Manager the chart with the name he wrote.
+Description: The Filter_By_Name function shows the Manager the chart with the name he wrote. <br>
 
   
-  **Page: : table.html**<br>
+  **Page: : table.html**
 Function Name Filter_By_Type <br>
 Funtion Type: OnChange() function  (Search bar)<br>
    * @param {string} type <br>
 Correct Operation: Will show the charts with that type. <br>
 Wrong Operation or no type found: Show message that no charts were found. <br>
-Description: The Filter_By_Type function shows the Manager the chart with the name he wrote.
+Description: The Filter_By_Type function shows the Manager the chart with the name he wrote. <br>
 
       
-**Page: table.html**<br>
+**Page: table.html**
 Function Name Get_Data <br>
 Funtion Type: OnLoad() function  <br>
 Correct Operation: Get Data of Motion Class from the API. <br>
 Wrong Operation or no data found: Show  error message. <br>
-Description: The Get_Data function gets the data via Api
+Description: The Get_Data function gets the data via Api <br>
 
-**Page: table.html**<br>
+**Page: table.html**
 Function Name Post_Data <br>
 Funtion Type: OnLoad() function  <br>
 Correct Operation: Post Data for the API. <br>
 Wrong Operation or no data found: Show  error message. <br>
-Description: The Post_Data function sends the data via Api
+Description: The Post_Data function sends the data via Api <br>
   
 
   MotionFrame : Only attributes

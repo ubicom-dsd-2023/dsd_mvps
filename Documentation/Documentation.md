@@ -87,20 +87,19 @@ Description: Creates a Manager in the database this can be a health related pers
   * Logs Class : Parameters
  
   class Logs {
-  /**
    * Constructor for the Logs class, initializes the manager object with the given attributes.
-   * @param {Date} Timestamp - An action performed on the App.
-   * @param {string} description - An action performed on the App.
-   * @param {User} log - An action performed on the App.
-   * @param {string} type - An action performed on the App.
-   * @param {string} Past_data - An action performed on the App.
-   * @param {string} New_data - An action performed on the App.
-   **/
+   * @param {Date} Timestamp
+   * @param {string} description
+   * @param {User} user
+   * @param {string} type
+   * @param {string} Past_data
+   * @param {string} New_data
+  
    
   **Page: Every Page**
 Function Name: write_Logs<br>
 Funtion Type: It will be called in every event, for example if we create a new user this method will be called after that.<br>
-   * @param {string} log <br>
+   * @param {Logs} log <br>
    * @return {bool}<br>
 Correct Operation: Write In the database the action performed in the web app.<br>
 Wrong Operation: <br>
@@ -111,7 +110,7 @@ Description: Creates the log in the database, of every action that occurs in the
 **Page: Every Page**<br>
 Function Name: write_Logs<br>
 Funtion Type: OnLoad() function<br>
-   * @param {string} log <br>
+   * @param {Logs} log <br>
    * @return {bool}<br>
 Correct Operation: Will show the list of Logs that occurred.<br>
 Wrong Operation: Send message that an error occurred.<br>
@@ -130,7 +129,7 @@ Description: Shows the list of logs that occurred recently ,we will have pages, 
   **/
   
   
-  **Page: : table.html **<br>
+  **Page: : table.html**<br>
 Function Name Filter_By_Name <br>
 Funtion Type: OnChange() function  (Search bar)<br>
    * @param {string} name <br>
@@ -139,7 +138,7 @@ Wrong Operation or no name found: Show message that no charts were found. <br>
 Description: The Filter_By_Name function shows the Manager the chart with the name he wrote.
 
   
-  **Page: : table.html **<br>
+  **Page: : table.html**<br>
 Function Name Filter_By_Type <br>
 Funtion Type: OnChange() function  (Search bar)<br>
    * @param {string} type <br>
@@ -155,7 +154,14 @@ Correct Operation: Get Data of Motion Class from the API. <br>
 Wrong Operation or no data found: Show  error message. <br>
 Description: The Get_Data function gets the data via Api
 
+**Page: table.html**<br>
+Function Name Post_Data <br>
+Funtion Type: OnLoad() function  <br>
+Correct Operation: Post Data for the API. <br>
+Wrong Operation or no data found: Show  error message. <br>
+Description: The Post_Data function sends the data via Api
   
+
   MotionFrame : Only attributes
   /**
   * @param {float} x - real number.

@@ -1,0 +1,80 @@
+{
+    "Users": [ {
+            "Id": "1",
+            "Name": "Rui",
+            "Email": "test3@test.com",
+            "PhoneNumber": "1234567891234",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "2",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "3",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "4",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "5",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "6",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "7",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "8",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "9",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "10",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        },
+        {
+            "Id": "11",
+            "Name": "Tiago",
+            "Email": "test4@test.com",
+            "PhoneNumber": "1234567895678",
+            "BirthDate": "03/08/2001"
+        }
+    ]
+}

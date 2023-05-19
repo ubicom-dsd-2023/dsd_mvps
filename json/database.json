@@ -1,0 +1,116 @@
+{
+  "Manager": [ {
+        "Id": "1",
+        "Name": "Rui",
+        "Email": "test1@test.com",
+        "Password": "123",
+        "isLoged": false,
+        "BirthDate": "03/08/2001",
+        "State": true,
+        "Permissions": false
+    },
+    {
+        "Id": "2",
+        "Name": "Tomás",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": false
+    },
+    {
+        "Id": "3",
+        "Name": "Tiago",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": false
+    }
+    ,
+    {
+        "Id": "4",
+        "Name": "Pedro",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": false
+    }
+    ,
+    {
+        "Id": "5",
+        "Name": "João",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": true
+    }
+    ,
+    {
+        "Id": "6",
+        "Name": "Miguel",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": false
+    },
+    {
+        "Id": "7",
+        "Name": "Francisco",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": true
+    },
+    {
+        "Id": "8",
+        "Name": "Santiago",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": false
+    },
+    {
+        "Id": "9",
+        "Name": "Afonso",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": true
+    },
+    {
+        "Id": "10",
+        "Name": "Duarte",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": true
+    },
+    {
+        "Id": "11",
+        "Name": "José",
+        "Email": "test2@test.com",
+        "Password": "superencryptedpassword",
+        "isLoged": false,
+        "BirthDate": "10/04/2001",
+        "State": true,
+        "Permissions": true
+    }
+  ]
+}

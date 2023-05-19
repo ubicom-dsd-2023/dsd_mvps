@@ -245,7 +245,7 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table id="table-managers" class="table align-items-center mb-0">
                   <thead>
                     <tr class="user-select-none">
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">UserID</th>
@@ -256,67 +256,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr id="1">
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs text-secondary mb-0">1</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        859985116@qq.com
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold"></span>
-                      </td>
-                      <td>
-                        <span id="edit" class="text-secondary text-xs font-weight-bold p-1">
-                          <i class="fa-solid fa-lg fa-edit"></i>
-                        </span>
-                      </td>
-                    </tr>
-                    <tr id="2">
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs text-secondary mb-0">2</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Davis</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        TheBestEmailEver@qq.com
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">
-                          <i class="fa fa-check"></i>
-                        </span>
-                      </td>
-                      <td>
-                        <span id="edit" class="text-secondary text-xs font-weight-bold p-1">
-                          <i class="fa-solid fa-lg fa-edit"></i>
-                        </span>
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-            <nav>
+            <nav id="list">
               <ul class="pagination justify-content-end">
                 <li class="page-item disabled">
                   <a href="" class="page-link">
@@ -326,6 +270,12 @@
                 </li>
                 <li class="page-item active">
                   <a href="" class="page-link text-white">1</a>
+                </li>
+                <li class="page-item">
+                  <a href="" class="page-link text-black">2</a>
+                </li>
+                <li class="page-item">
+                  <a href="" class="page-link text-black">3</a>
                 </li>
                 <li class="page-item">
                   <a href="" class="page-link">
@@ -376,8 +326,7 @@
     </div>
   </main>
   <!--   Core JS Files   -->
-  <script src="https://code.jquery.com/jquery-3.6.4.slim.js"
-    integrity="sha256-dWvV84T6BhzO4vG6gWhsWVKVoa4lVmLnpBOZh/CAHU4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -396,21 +345,24 @@
 
       let id = null;
 
-      $("tbody > tr > td > span").on("click", function () {
-        // TODO: verify if the id is not null or undefined or empty
-        if ($(this).attr('id') === "edit") {
-          location.href = "/pages/editManager.html?id=" + id;
-        }
-        else {
-          //error
-        }
+      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+        $('#table-managers > tbody').append(generateTableRows(data.Manager));
+        $("tbody > tr").hover(function () {
+          $(this).addClass('table-secondary');
+          }, function () {
+            $(this).removeClass('table-secondary');
+          });
+        $("tbody > tr > td > span").on("click", function () {
+          // TODO: verify if the id is not null or undefined or empty
+          if ($(this).attr('id') === "edit") {
+            location.href = "/pages/editManager.html?id=" + id;
+          }
+          else {
+            //error
+          }
+        });
       });
 
-      $("tbody > tr").hover(function () {
-        $(this).addClass('table-secondary');
-      }, function () {
-        $(this).removeClass('table-secondary');
-      });
 
       $("#searchBar").keyup(function () {
         var value = $(this).val().toLowerCase();
@@ -426,6 +378,27 @@
           $('#addUserText').html("Add User");
         }
       };
+
+      // Function to generate the table rows
+      function generateTableRows(data) {
+        let rows = '';
+        $.each(data, function(index, manager) {
+          if(manager.Id >= 1 && manager.Id <= 10) {
+            if(manager.State === true) {
+              const adminIcon = manager.Permissions ? '<i class="fa fa-check"></i>' : '';
+              const editIcon = '<span id="edit" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-edit"></i></span>';
+              rows += '<tr id="' + manager.Id + '">' +
+              '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><p class="text-xs text-secondary mb-0">' + manager.Id + '</p></div></div></td>' +
+              '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' + manager.Name + '</h6></div></div></td>' +
+              '<td>' + manager.Email + '</td>' +
+              '<td class="align-middle text-center"><span class="text-secondary text-xs font-weight-bold">' + adminIcon + '</span></td>' +
+              '<td class="align-middle text-center">' + editIcon + '</td>' +
+              '</tr>';
+            }
+          }
+        });
+        return rows;
+      }
 
     });
   </script>

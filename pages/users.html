@@ -246,7 +246,7 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table id="table-users" class="table align-items-center mb-0">
                   <thead>
                     <tr class="user-select-none">
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">UserID</th>
@@ -403,24 +403,27 @@
 
       let id = null;
 
-      $("tbody > tr > td > span").on("click", function () {
-        // TODO: verify if the id is not null or undefined or empty
-        if ($(this).attr('id') === "info") {
-          location.href = "/pages/showuser.html?id=" + id;
-        }
-        else if ($(this).attr('id') === "edit") {
-          location.href = "/pages/edituser.html?id=" + id;
-        }
-        else {
-          //error
-        }
-      });
 
-      $("tbody > tr").hover(function () {
-        $(this).addClass('table-secondary');
-        id = $(this).attr('id');
-      }, function () {
-        $(this).removeClass('table-secondary');
+      $.getJSON("http://127.0.0.1:5500/json/databaseUsers.json", function (data) {
+        $('#table-users > tbody').append(generateTableRows(data.Users));
+        $("tbody > tr").hover(function () {
+          $(this).addClass('table-secondary');
+          id = $(this).attr('id');
+          }, function () {
+            $(this).removeClass('table-secondary');
+        });
+        $("tbody > tr > td > span").on("click", function () {
+          // TODO: verify if the id is not null or undefined or empty
+          if ($(this).attr('id') === "info") {
+            location.href = "/pages/showuser.html?id=" + id;
+          }
+          else if ($(this).attr('id') === "edit") {
+            location.href = "/pages/edituser.html?id=" + id;
+          }
+          else {
+            //error
+          }
+        });
       });
 
       $("#searchBar").keyup(function () {
@@ -437,6 +440,23 @@
           $('#addUserText').html("Add User");
         }
       };
+
+      // Function to generate the table rows
+      function generateTableRows(data) {
+        let rows = '';
+        $.each(data, function(index, user) {
+          const infoIcon = '<span id="edit" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-info"></i></span>'
+          const editIcon = '<span id="edit" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-edit"></i></span>';
+          rows += '<tr id="' + user.Id + '">' +
+            '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><p class="text-xs text-secondary mb-0">' + user.Id + '</p></div></div></td>' +
+            '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' + user.Name + '</h6></div></div></td>' +
+            '<td>' + user.Email + '</td>' +
+            '<td class="align-middle text-center"> '+ infoIcon + '</td>' +
+            '<td class="align-middle text-center">' + editIcon + '</td>' +
+            '</tr>';
+        });
+        return rows;
+      }
 
     });
   </script>

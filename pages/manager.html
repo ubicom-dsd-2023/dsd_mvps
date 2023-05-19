@@ -231,7 +231,8 @@
           </div>
         </div>
         <div id="addBtn" class="col-2 text-end text-nowrap">
-          <a href="../pages/addManager.html"  class="btn bg-gradient-success px-3 mb-0" tabindex="-1" role="button" aria-disabled="true">
+          <a href="../pages/addManager.html" class="btn bg-gradient-success px-3 mb-0" tabindex="-1" role="button"
+            aria-disabled="true">
             <i class="fa-sharp fa-solid fa-plus"></i>
             <span id="addUserText">Add Manager</span>
           </a>
@@ -251,7 +252,8 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">UserID</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Admin</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Admin
+                      </th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"></th>
                     </tr>
                   </thead>
@@ -260,29 +262,8 @@
                 </table>
               </div>
             </div>
-            <nav id="list">
+            <nav id="page-carousel">
               <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
-                  <a href="" class="page-link">
-                    <span>&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item active">
-                  <a href="" class="page-link text-white">1</a>
-                </li>
-                <li class="page-item">
-                  <a href="" class="page-link text-black">2</a>
-                </li>
-                <li class="page-item">
-                  <a href="" class="page-link text-black">3</a>
-                </li>
-                <li class="page-item">
-                  <a href="" class="page-link">
-                    <span>&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
               </ul>
             </nav>
           </div>
@@ -326,7 +307,9 @@
     </div>
   </main>
   <!--   Core JS Files   -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -344,59 +327,290 @@
     $(document).ready(function () {
 
       let id = null;
+      let pages = 0;
+      let pageNumber = 1;
+      let allRows = null;
+      let actualRows = null;
+
+      let updatePageCarousel = function () {
+        pageNumber = parseInt($(this).text());
+        let buttons = '';
+
+        let rowsButton = actualRows.slice((pageNumber - 1) * 25, 25 * pageNumber);
+
+        $("html, body").animate({
+          scrollTop: 0
+        }, 800);
+
+        $('#table-managers > tbody > tr').remove();
+        $('#table-managers > tbody').append(rowsButton);
+
+        $('#page-carousel ul li').remove();
+        if (pageNumber === 1) {
+          buttons = "";
+          buttons +=
+            '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            1 +
+            '</a></li>';
+          if (pages > 1) {
+            buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + 2 + '</a></li>';
+            buttons +=
+              '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+          } else
+            buttons +=
+            '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else if (pageNumber === pages) {
+          buttons = "";
+          buttons +=
+            '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+            '</a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            pageNumber +
+            '</a></li>';
+          buttons +=
+            '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else {
+          buttons = "";
+          buttons +=
+            '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+            '</a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            pageNumber +
+            '</a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+            '</a></li>';
+          buttons +=
+            '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        }
+        $('#page-carousel ul').append(buttons);
+
+        $('#next').click(nextOrPreviousPage);
+        $('#previous').click(nextOrPreviousPage);
+        $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+      }
+
+      let nextOrPreviousPage = function () {
+        console.log($(this).attr('id'));
+        if ($(this).attr('id') === "previous") {
+          if (pageNumber > 1) {
+            pageNumber--;
+            let buttons = '';
+            let rowsButton = actualRows.slice((pageNumber - 1) * 25, 25 * pageNumber);
+
+            $('#table-managers > tbody > tr').remove();
+            $('#table-managers > tbody').append(rowsButton);
+
+            $('#page-carousel ul li').remove();
+            if (pageNumber === 1) {
+              buttons = "";
+              buttons +=
+                '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' + 1 +
+                '</a></li>';
+              if (pages > 1) {
+                buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + 2 + '</a></li>';
+                buttons +=
+                  '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+              } else
+                buttons +=
+                '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+            } else {
+              buttons = "";
+              buttons +=
+                '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+                pageNumber + '</a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+            }
+            $('#page-carousel ul').append(buttons);
+            $('#next').click(nextOrPreviousPage);
+            $('#previous').click(nextOrPreviousPage);
+            $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+          }
+
+        } else {
+          if (pageNumber < pages) {
+            pageNumber++;
+            let buttons = '';
+            let rowsButton = actualRows.slice((pageNumber - 1) * 25, 25 * pageNumber);
+
+            $('#table-managers > tbody > tr').remove();
+            $('#table-managers > tbody').append(rowsButton);
+            $('#page-carousel ul li').remove();
+            console.log(pageNumber);
+            console.log(pages);
+            if (pageNumber === pages) {
+              buttons = "";
+              buttons +=
+                '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+                pageNumber + '</a></li>';
+              buttons +=
+                '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+            } else {
+              buttons = "";
+              buttons +=
+                '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+                pageNumber + '</a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+
+            }
+            console.log(buttons);
+            $('#page-carousel ul').append(buttons);
+
+            $('#next').click(nextOrPreviousPage);
+            $('#previous').click(nextOrPreviousPage);
+            $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+
+          }
+        }
+
+      }
 
       $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
-        $('#table-managers > tbody').append(generateTableRows(data.Manager));
+        allRows = generateTableRows(data.Manager);
+        actualRows = allRows;
+        let rows1 = actualRows.slice(0, 25);
+        $('#table-managers > tbody').append(rows1);
         $("tbody > tr").hover(function () {
           $(this).addClass('table-secondary');
-          }, function () {
-            $(this).removeClass('table-secondary');
-          });
+        }, function () {
+          $(this).removeClass('table-secondary');
+        });
         $("tbody > tr > td > span").on("click", function () {
           // TODO: verify if the id is not null or undefined or empty
           if ($(this).attr('id') === "edit") {
             location.href = "/pages/editManager.html?id=" + id;
-          }
-          else {
+          } else {
             //error
           }
         });
       });
 
-
       $("#searchBar").keyup(function () {
         var value = $(this).val().toLowerCase();
-        $("tbody > tr").filter(function () {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        console.log(allRows);
+        //filter allRows
+        let filterRows = allRows.filter(function (row) {
+          return row.toLowerCase().indexOf(value) > -1;
         });
+
+        let numberRaws = filterRows.length;
+        let pages = Math.ceil(numberRaws / 25);
+        pageNumber = 1;
+        $('#table-managers > tbody > tr').remove();
+        let rowsButton = filterRows.slice(0, 25);
+        $('#table-managers > tbody').append(rowsButton);
+
+        $('#page-carousel ul li').remove();
+        let buttons = '';
+        if (pages === 1) {
+          buttons +=
+            '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' + pageNumber + '</a></li>';
+          buttons += '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else if (pages > 1) {
+          buttons +=
+            '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            pageNumber + '</a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+            '</a></li>';
+          buttons +=
+            '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        }
+        $('#page-carousel ul').append(buttons);
+
+        $('#next').click(nextOrPreviousPage);
+        $('#previous').click(nextOrPreviousPage);
+        $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
       });
 
-      window.onresize = function(event) {
-        if($('#addBtn').width() <= 100){
+
+      window.onresize = function (event) {
+        if ($('#addBtn').width() <= 100) {
           $('#addUserText').html("");
-        }else{
+        } else {
           $('#addUserText').html("Add User");
         }
       };
 
       // Function to generate the table rows
       function generateTableRows(data) {
-        let rows = '';
-        $.each(data, function(index, manager) {
-          if(manager.Id >= 1 && manager.Id <= 10) {
-            if(manager.State === true) {
-              const adminIcon = manager.Permissions ? '<i class="fa fa-check"></i>' : '';
-              const editIcon = '<span id="edit" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-edit"></i></span>';
-              rows += '<tr id="' + manager.Id + '">' +
-              '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><p class="text-xs text-secondary mb-0">' + manager.Id + '</p></div></div></td>' +
-              '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' + manager.Name + '</h6></div></div></td>' +
+        let rows = [];
+        let i = 0;
+        $.each(data, function (index, manager) {
+          if (manager.State === true) {
+            const adminIcon = manager.Permissions ? '<i class="fa fa-check"></i>' : '';
+            const editIcon =
+              '<span id="edit" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-edit"></i></span>';
+            rows[i] = '<tr id="' + manager.Id + '">' +
+              '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><p class="text-xs text-secondary mb-0">' +
+              manager.Id + '</p></div></div></td>' +
+              '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' +
+              manager.Name + '</h6></div></div></td>' +
               '<td>' + manager.Email + '</td>' +
-              '<td class="align-middle text-center"><span class="text-secondary text-xs font-weight-bold">' + adminIcon + '</span></td>' +
+              '<td class="align-middle text-center"><span class="text-secondary text-xs font-weight-bold">' +
+              adminIcon + '</span></td>' +
               '<td class="align-middle text-center">' + editIcon + '</td>' +
               '</tr>';
-            }
+            i++;
           }
         });
+        pages = Math.ceil(rows.length / 25);
+        let pageButtons = "";
+        pageButtons +=
+          '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+        pageButtons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+          1 +
+          '</a></li>';
+        if (pages > 1) {
+          pageButtons += '<li class="page-item"><a class="page-link cursor-pointer">' + 2 + '</a></li>';
+          pageButtons +=
+            '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else
+          pageButtons +=
+          '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+
+
+        $('#page-carousel ul').append(pageButtons);
+        $("tbody > tr").hover(function () {
+          $(this).addClass('table-secondary');
+        }, function () {
+          $(this).removeClass('table-secondary');
+        });
+        $("tbody > tr > td > span").on("click", function () {
+          // TODO: verify if the id is not null or undefined or empty
+          if ($(this).attr('id') === "edit") {
+            location.href = "/pages/editManager.html?id=" + id;
+          } else {
+            //error
+          }
+        });
+
+        $('#next').click(nextOrPreviousPage);
+        $('#previous').click(nextOrPreviousPage);
+        $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
         return rows;
       }
 

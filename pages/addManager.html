@@ -238,8 +238,12 @@
             <div class="mb-3">
               <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
             </div>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="admin" checked="">
+              <label class="form-check-label" for="rememberMe">Admin</label>
+            </div>
             <div class="text-center">
-              <button type="button" class="btn bg-gradient-dark w-100 my-1 mb-2">Add Manager</button>
+              <button id="addManager" type="button" class="btn bg-gradient-dark w-100 my-1 mb-2">Add Manager</button>
             </div>
           </form>
         </div>
@@ -292,6 +296,43 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+
+  <script>
+    $('#addManager').click(function() {
+    var name = $('input[aria-label="Name"]').val();
+    var email = $('input[aria-label="Email"]').val();
+    var date = $('input[type="date"]').val();
+    var password = $('input[aria-label="Password"]').val();
+    var isAdmin = $('#admin').is(':checked');
+
+    // Create a new manager object
+    var newManager = {
+      Id: 95,
+      Name: name,
+      Email: email,
+      Password: password,
+      isLoged: false,
+      BirthDate: date,
+      State: true,
+      Permissions: isAdmin
+    };
+
+    // Send the new manager data to the server-side script
+    $.ajax({
+      type: 'POST',
+      url: 'http://127.0.0.1:5500/json/database.json', // Replace with the URL or file path of your server-side script
+      data: JSON.stringify(newManager),
+      contentType: 'application/json',
+      success: function(response) {
+        console.log('Manager added successfully!');
+      },
+      error: function(error) {
+        console.error('Failed to add manager:', error);
+      }
+    });
+  });
+  </script>
+
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

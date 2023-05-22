@@ -242,7 +242,7 @@
               <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
             </div>
             <div class="text-center">
-              <button type="button" class="btn bg-gradient-dark w-100 my-1 mb-2">Add User</button>
+              <button id="addUser" type="button" class="btn bg-gradient-dark w-100 my-1 mb-2">Add User</button>
             </div>
           </form>
         </div>
@@ -282,6 +282,7 @@
     </div>
   </div>
   <!--   Core JS Files   -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -295,6 +296,49 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+
+  <script>
+    $('#addUser').click(function () {
+        let name = $('input[aria-label="Name"]').val();
+        let email = $('input[aria-label="Email"]').val();
+        let date = $('input[type="date"]').val();
+        let phone = $('input[aria-label="Phone Number"]').val();
+        let password = $('input[aria-label="Password"]').val();
+
+        // Create a new manager object
+        let newManager = {
+          Id: 95,
+          Name: name,
+          Email: email,
+          PhoneNumber: phone,
+          BirthDate: date,
+          Password: password,
+        };
+
+        $.getJSON("http://127.0.0.1:5500/json/databaseUsers.json", function (data) {
+          // Get the array of users
+
+
+          let users = data.Users;
+
+
+          users.push(newManager);
+          let updatedJsonData = JSON.stringify(users);
+          $.ajax
+          ({
+              type: "POST",
+              dataType : 'json',
+              async: false,
+              url: 'http://127.0.0.1:5500/json/databaseUsers.json',
+              data: { data: updatedJsonData },
+              success: function () {alert("Thanks!"); },
+              failure: function() {alert("Error!");}
+          });
+        });
+
+      });
+  </script>
+
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

@@ -4,7 +4,7 @@
         "Name": "Rui",
         "Email": "test1@test.com",
         "Password": "123",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "03/08/2001",
         "State": true,
         "Permissions": false
@@ -14,7 +14,7 @@
         "Name": "Tomás",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -24,7 +24,7 @@
         "Name": "Tiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -34,7 +34,7 @@
         "Name": "Pedro",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -44,7 +44,7 @@
         "Name": "João",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -54,7 +54,7 @@
         "Name": "Miguel",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -64,7 +64,7 @@
         "Name": "Francisco",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -74,7 +74,7 @@
         "Name": "Santiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -84,7 +84,7 @@
         "Name": "Afonso",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -94,7 +94,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -104,7 +104,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -114,7 +114,7 @@
         "Name": "Tomás",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -124,7 +124,7 @@
         "Name": "Tiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -134,7 +134,7 @@
         "Name": "Pedro",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -144,7 +144,7 @@
         "Name": "João",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -154,7 +154,7 @@
         "Name": "Miguel",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -164,7 +164,7 @@
         "Name": "Francisco",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -174,7 +174,7 @@
         "Name": "Santiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -184,7 +184,7 @@
         "Name": "Afonso",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -194,7 +194,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -204,7 +204,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -214,7 +214,7 @@
         "Name": "Tomás",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -224,7 +224,7 @@
         "Name": "Tiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -234,7 +234,7 @@
         "Name": "Pedro",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -244,7 +244,7 @@
         "Name": "João",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -254,7 +254,7 @@
         "Name": "Miguel",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -264,7 +264,7 @@
         "Name": "Francisco",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -274,7 +274,7 @@
         "Name": "Santiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -284,7 +284,7 @@
         "Name": "Afonso",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -294,7 +294,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -304,7 +304,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -314,7 +314,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -324,7 +324,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -334,7 +334,7 @@
         "Name": "Tomás",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -344,7 +344,7 @@
         "Name": "Tiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -354,7 +354,7 @@
         "Name": "Pedro",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -364,7 +364,7 @@
         "Name": "João",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -374,7 +374,7 @@
         "Name": "Miguel",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -384,7 +384,7 @@
         "Name": "Francisco",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -394,7 +394,7 @@
         "Name": "Santiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -404,7 +404,7 @@
         "Name": "Afonso",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -414,7 +414,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -424,7 +424,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -434,7 +434,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -444,7 +444,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -454,7 +454,7 @@
         "Name": "Tomás",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -464,7 +464,7 @@
         "Name": "Tiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -474,7 +474,7 @@
         "Name": "Pedro",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -484,7 +484,7 @@
         "Name": "João",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -494,7 +494,7 @@
         "Name": "Miguel",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -504,7 +504,7 @@
         "Name": "Francisco",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -514,7 +514,7 @@
         "Name": "Santiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -524,7 +524,7 @@
         "Name": "Afonso",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -534,7 +534,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -544,7 +544,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -554,7 +554,7 @@
         "Name": "Tomás",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -564,7 +564,7 @@
         "Name": "Tiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -574,7 +574,7 @@
         "Name": "Pedro",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -584,7 +584,7 @@
         "Name": "João",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -594,7 +594,7 @@
         "Name": "Miguel",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -604,7 +604,7 @@
         "Name": "Francisco",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -614,7 +614,7 @@
         "Name": "Santiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -624,7 +624,7 @@
         "Name": "Afonso",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -634,7 +634,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -644,7 +644,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -654,7 +654,7 @@
         "Name": "Tomás",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -664,7 +664,7 @@
         "Name": "Tiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -674,7 +674,7 @@
         "Name": "Pedro",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -684,7 +684,7 @@
         "Name": "João",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -694,7 +694,7 @@
         "Name": "Miguel",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -704,7 +704,7 @@
         "Name": "Francisco",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -714,7 +714,7 @@
         "Name": "Santiago",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": false
@@ -724,7 +724,7 @@
         "Name": "Afonso",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -734,7 +734,7 @@
         "Name": "Duarte",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -744,7 +744,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true
@@ -754,7 +754,7 @@
         "Name": "José",
         "Email": "test2@test.com",
         "Password": "superencryptedpassword",
-        "isLoged": false,
+        "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
         "Permissions": true

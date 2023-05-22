@@ -239,7 +239,7 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table id="table-logs" class="table align-items-center mb-0">
                   <thead>
                     <tr class="user-select-none">
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
@@ -252,85 +252,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <!-- <h6 class="mb-0 text-sm">000001</h6> -->
-                            <p class="text-xs text-secondary mb-0">1</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Add User</h6>
-                            <!-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> -->
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        John Davis
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">12/05/2023</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span id="1" class="text-secondary text-xs font-weight-bold p-2">
-                          <i class="fa-solid fa-lg fa-info"></i>
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <!-- <h6 class="mb-0 text-sm">000001</h6> -->
-                            <p class="text-xs text-secondary mb-0">2</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Add Manager</h6>
-                            <!-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> -->
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        John Michael
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">11/05/2023</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span id="2" class="text-secondary text-xs font-weight-bold p-2">
-                          <i class="fa-solid fa-lg fa-info"></i>
-                        </span>
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-            <nav>
+            <nav id="page-carousel">
               <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
-                  <a href="" class="page-link">
-                    <span>&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item active">
-                  <a href="" class="page-link text-white">1</a>
-                </li>
-                <li class="page-item">
-                  <a href="" class="page-link">
-                    <span>&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
               </ul>
             </nav>
           </div>
@@ -374,8 +301,9 @@
     </div>
   </main>
   <!--   Core JS Files   -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript"
-    charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -392,30 +320,270 @@
   <script>
     $(document).ready(function () {
 
-      $("tbody > tr > td > span").on("click", function () {
-        location.href = "/pages/showlog.html?id=" + $(this).attr('id');
-      });
 
-      $("tbody > tr").hover(function () {
-        $(this).addClass('table-secondary');
-      }, function () {
-        $(this).removeClass('table-secondary');
+      let updatePageCarousel = function () {
+        pageNumber = parseInt($(this).text());
+        let buttons = '';
+
+        let rowsButton = actualRows.slice((pageNumber - 1) * 25, 25 * pageNumber);
+
+        $("html, body").animate({
+          scrollTop: 0
+        }, 800);
+
+        $('#table-logs > tbody > tr').remove();
+        $('#table-logs > tbody').append(rowsButton);
+
+        $('#page-carousel ul li').remove();
+        if (pageNumber === 1) {
+          buttons = "";
+          buttons +=
+            '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            1 +
+            '</a></li>';
+          if (pages > 1) {
+            buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + 2 + '</a></li>';
+            buttons +=
+              '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+          } else
+            buttons +=
+            '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else if (pageNumber === pages) {
+          buttons = "";
+          buttons +=
+            '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+            '</a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            pageNumber +
+            '</a></li>';
+          buttons +=
+            '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else {
+          buttons = "";
+          buttons +=
+            '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+            '</a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            pageNumber +
+            '</a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+            '</a></li>';
+          buttons +=
+            '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        }
+        $('#page-carousel ul').append(buttons);
+
+        $('#next').click(nextOrPreviousPage);
+        $('#previous').click(nextOrPreviousPage);
+        $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+      }
+
+      let nextOrPreviousPage = function () {
+        console.log($(this).attr('id'));
+        if ($(this).attr('id') === "previous") {
+          if (pageNumber > 1) {
+            pageNumber--;
+            let buttons = '';
+            let rowsButton = actualRows.slice((pageNumber - 1) * 25, 25 * pageNumber);
+
+            $('#table-logs > tbody > tr').remove();
+            $('#table-logs > tbody').append(rowsButton);
+
+            $('#page-carousel ul li').remove();
+            if (pageNumber === 1) {
+              buttons = "";
+              buttons +=
+                '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' + 1 +
+                '</a></li>';
+              if (pages > 1) {
+                buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + 2 + '</a></li>';
+                buttons +=
+                  '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+              } else
+                buttons +=
+                '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+            } else {
+              buttons = "";
+              buttons +=
+                '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+                pageNumber + '</a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+            }
+            $('#page-carousel ul').append(buttons);
+            $('#next').click(nextOrPreviousPage);
+            $('#previous').click(nextOrPreviousPage);
+            $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+          }
+
+        } else {
+          if (pageNumber < pages) {
+            pageNumber++;
+            let buttons = '';
+            let rowsButton = actualRows.slice((pageNumber - 1) * 25, 25 * pageNumber);
+
+            $('#table-logs > tbody > tr').remove();
+            $('#table-logs > tbody').append(rowsButton);
+            $('#page-carousel ul li').remove();
+            console.log(pageNumber);
+            console.log(pages);
+            if (pageNumber === pages) {
+              buttons = "";
+              buttons +=
+                '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+                pageNumber + '</a></li>';
+              buttons +=
+                '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+            } else {
+              buttons = "";
+              buttons +=
+                '<li class="page-item"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber - 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+                pageNumber + '</a></li>';
+              buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+                '</a></li>';
+              buttons +=
+                '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+
+            }
+            console.log(buttons);
+            $('#page-carousel ul').append(buttons);
+
+            $('#next').click(nextOrPreviousPage);
+            $('#previous').click(nextOrPreviousPage);
+            $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+
+          }
+        }
+
+      }
+
+      $.getJSON("http://127.0.0.1:5500/json/databaselogs.json", function (data) {
+        console.log(data.Logs);
+        allRows = generateTableRows(data.Logs);
+        console.log(allRows);
+        actualRows = allRows;
+        let rows1 = actualRows.slice(0, 25);
+        $('#table-logs > tbody').append(rows1);
+        $("tbody > tr").hover(function () {
+          $(this).addClass('table-secondary');
+        }, function () {
+          $(this).removeClass('table-secondary');
+        });
+        $("tbody > tr > td > span").on("click", function () {
+          location.href = "/pages/showlog.html?id=" + $(this).attr('id');
+        });
       });
 
       $("#searchBar").keyup(function () {
         var value = $(this).val().toLowerCase();
-        $("tbody > tr").filter(function () {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        console.log(allRows);
+        //filter allRows
+        let filterRows = allRows.filter(function (row) {
+          return row.toLowerCase().indexOf(value) > -1;
         });
+
+        let numberRaws = filterRows.length;
+        let pages = Math.ceil(numberRaws / 25);
+        pageNumber = 1;
+        $('#table-logs > tbody > tr').remove();
+        let rowsButton = filterRows.slice(0, 25);
+        $('#table-logs > tbody').append(rowsButton);
+
+        $('#page-carousel ul li').remove();
+        let buttons = '';
+        if (pages === 1) {
+          buttons +=
+            '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' + pageNumber + '</a></li>';
+          buttons += '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else if (pages > 1) {
+          buttons +=
+            '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            pageNumber + '</a></li>';
+          buttons += '<li class="page-item"><a class="page-link cursor-pointer">' + (pageNumber + 1) +
+            '</a></li>';
+          buttons +=
+            '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        }
+        $('#page-carousel ul').append(buttons);
+
+        $('#next').click(nextOrPreviousPage);
+        $('#previous').click(nextOrPreviousPage);
+        $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
       });
 
-      window.onresize = function (event) {
-        if ($('#addBtn').width() <= 100) {
-          $('#addUserText').html("");
-        } else {
-          $('#addUserText').html("Add User");
-        }
-      };
+
+      function generateTableRows(data) {
+        let rows = [];
+        let i = 0;
+        $.each(data, function (index, log) {
+          const infoIcon =
+            '<span id="2" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-info"></i></span>'
+          rows[i] =
+            '<tr>' +
+            '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><p class="text-xs text-secondary mb-0">' +
+            log.Id + '</p></div></div></td>' +
+            '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' +
+            log.Type + '</h6></div></div></td>' +
+            '<td>' + log.ActionBy + '</td>' +
+            '<td class="align-middle text-center"><span class="text-secondary text-xs font-weight-bold">' +
+            log.Date + '</span></td>' +
+            '<td class="align-middle text-center">' + infoIcon + '</td>' +
+            '</tr>';
+          i++;
+        });
+        pages = Math.ceil(rows.length / 25);
+        let pageButtons = "";
+        pageButtons +=
+          '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
+        pageButtons +=
+          '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+          1 +
+          '</a></li>';
+        if (pages > 1) {
+          pageButtons += '<li class="page-item"><a class="page-link cursor-pointer">' + 2 + '</a></li>';
+          pageButtons +=
+            '<li class="page-item"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+        } else
+          pageButtons +=
+          '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+
+
+        $('#page-carousel ul').append(pageButtons);
+        $("tbody > tr").hover(function () {
+          $(this).addClass('table-secondary');
+        }, function () {
+          $(this).removeClass('table-secondary');
+        });
+        $("tbody > tr > td > span").on("click", function () {
+          location.href = "/pages/showlog.html?id=" + $(this).attr('id');
+        });
+
+        $('#next').click(nextOrPreviousPage);
+        $('#previous').click(nextOrPreviousPage);
+        $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+        return rows;
+      }
 
     });
   </script>

@@ -4,7 +4,7 @@
 
 
 ## Class Diagram
-![Class Diagram](https://i.imgur.com/fN6cu98.png)
+![Class Diagram](https://i.imgur.com/TpafB7O.png)
 
 - Updates to Class Diagram with the additional information Bob gave. 
 - Updates to Class Diagram with the additional information of the general meeting 6/5/2023

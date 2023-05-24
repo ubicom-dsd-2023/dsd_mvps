@@ -41,8 +41,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
-        target="_blank">
+      <a class="navbar-brand m-0" href="../pages/dashboard.html" target="_self">
         <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
       </a>
@@ -306,48 +305,53 @@
 
   <script>
     $('#addManager').click(function () {
-        let name = $('input[aria-label="Name"]').val();
-        let email = $('input[aria-label="Email"]').val();
-        let date = $('input[type="date"]').val();
-        let password = $('input[aria-label="Password"]').val();
-        let isAdmin = $('#admin').is(':checked');
+      let name = $('input[aria-label="Name"]').val();
+      let email = $('input[aria-label="Email"]').val();
+      let date = $('input[type="date"]').val();
+      let password = $('input[aria-label="Password"]').val();
+      let isAdmin = $('#admin').is(':checked');
 
-        // Create a new manager object
-        let newManager = {
-          Id: 95,
-          Name: name,
-          Email: email,
-          Password: password,
-          isLogged: false,
-          BirthDate: date,
-          State: true,
-          Permissions: isAdmin
-        };
+      // Create a new manager object
+      let newManager = {
+        Id: 95,
+        Name: name,
+        Email: email,
+        Password: password,
+        isLogged: false,
+        BirthDate: date,
+        State: true,
+        Permissions: isAdmin
+      };
 
-        $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
-          // Get the array of managers
-
-
-          let managers = data.Manager;
+      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+        // Get the array of managers
 
 
-          managers.push(newManager);
+        let managers = data.Manager;
 
-          let updatedJsonData = JSON.stringify(managers);
 
-          $.ajax
-          ({
-              type: "POST",
-              dataType : 'json',
-              async: false,
-              url: 'http://127.0.0.1:5500/json/database.json',
-              data: { data: updatedJsonData },
-              success: function () {alert("Thanks!"); },
-              failure: function() {alert("Error!");}
-          });
+        managers.push(newManager);
+
+        let updatedJsonData = JSON.stringify(managers);
+
+        $.ajax({
+          type: "POST",
+          dataType: 'json',
+          async: false,
+          url: 'http://127.0.0.1:5500/json/database.json',
+          data: {
+            data: updatedJsonData
+          },
+          success: function () {
+            alert("Thanks!");
+          },
+          failure: function () {
+            alert("Error!");
+          }
         });
-
       });
+
+    });
   </script>
 
   <!-- Github buttons -->

@@ -5,21 +5,25 @@
             "Type": "Add User",
             "ActionBy": "Rui",
             "Date": "2017-01-01",
-            "Description": "Added a new user"
+            "Description": "Added a new user",
+            "Change": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}"
         },
         {
             "Id": "2",
             "Type": "Edit User",
-            "ActionBy": "Rui",
+            "ActionBy": "Tomas",
             "Date": "2017-01-01",
-            "Description": "Added a new user"
+            "Description": "Added a new user",
+            "ChangeNew": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}",
+            "ChangeOld": "{\"name\": \"John Doe\",\"age\": 31,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}"
         },
         {
             "Id": "3",
-            "Type": "Edit User",
-            "ActionBy": "Rui",
+            "Type": "Delete User",
+            "ActionBy": "Tomas",
             "Date": "2017-01-01",
-            "Description": "Added a new user"
+            "Description": "Added a new user",
+            "Change": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}"
         },
         {
             "Id": "4",

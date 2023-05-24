@@ -42,8 +42,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
-                target="_blank">
+            <a class="navbar-brand m-0" href="../pages/dashboard.html" target="_self">
                 <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
             </a>
@@ -200,7 +199,8 @@
                         </li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Log Information</li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Log #1</h6>
+                    <div id="idInformation">
+                    </div>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <ul class="navbar-nav ms-md-auto justify-content-end">
@@ -236,58 +236,38 @@
                         <span>
                             <h6>Type of log:</h6>
                         </span>
-                        <span>
-                            Add User
+                        <span id="type">
                         </span>
                     </div>
                     <div class="mb-3">
                         <span>
                             <h6>Action made by:</h6>
                         </span>
-                        <span>
-                            John Doe
+                        <span id="actionBy">
                         </span>
                     </div>
                     <div class="mb-3">
                         <span>
                             <h6>Time:</h6>
                         </span>
-                        <span>
-                            2021-10-10 10:10:10
+                        <span id="time">
                         </span>
                     </div>
                     <div class="mb-3">
                         <span>
                             <h6>Description:</h6>
                         </span>
-                        <span>
-                            Age Changed from 31 to 30
+                        <span id="description">
                         </span>
                     </div>
                 </div>
-                <div id="diffcontainer">
+                <div>
                     <div class="mb-3">
                         <span>
-                            <h6>Differences:</h6>
+                            <h6 id="typeChange"></h6>
                         </span>
                     </div>
-                    <div class="d-flex">
-                        <div class="d-flex flex-column col-6">
-                            <div class="mb-1">
-                                <span>
-                                    <h7>Old:</h7>
-                                </span>
-                            </div>
-                            <pre id="out" class="codeBlock left col-12"></pre>
-                        </div>
-                        <div class="d-flex flex-column col-6">
-                            <div class="mb-1">
-                                <span>
-                                    <h7>New:</h7>
-                                </span>
-                            </div>
-                            <pre id="out2" class="codeBlock right col-12"></pre>
-                        </div>
+                    <div id="informationChange" class="d-flex">
                     </div>
                 </div>
             </div>
@@ -354,24 +334,68 @@
     <script>
         $(document).ready(function () {
 
-            jdd.compare('{"name": "John Does","age": 31,"address": {"street": "Main Street","number": 123,"city": "New York"}}', '{"name": "John Doe","age": 30,"address": {"street": "Main Street","number": 123,"city": "New York"}}');
+            const wordAdd = "Add";
+            const wordEdit = "Edit";
+            const wordDelete = "Delete";
+            let filteredData = null;
 
-            $("tbody > tr").on("click", function () {
-                location.href = "/pages/showuser.html?id=" + $(this).attr('id');
-            });
 
-            $("tbody > tr").hover(function () {
-                $(this).addClass('table-secondary');
-            }, function () {
-                $(this).removeClass('table-secondary');
-            });
 
-            $("#searchBar").keyup(function () {
-                var value = $(this).val().toLowerCase();
-                $("tbody > tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            const currentUrl = new URL($(location).attr('href'));
+            $("#idInformation").append('<h6 class="font-weight-bolder mb-0">' + 'Log: ' + currentUrl.searchParams.get(
+                "id") + '</h6>');
+
+            $.getJSON("http://127.0.0.1:5500/json/databaselogs.json", function (data) {
+                //return object when id equal to current url id
+                filteredData = data.Logs.filter(function (entry) {
+                    return entry.Id == currentUrl.searchParams.get("id");
                 });
+                const filteredDataType = filteredData[0].Type;
+
+                $("#type").append(filteredData[0].Type);
+                $("#actionBy").append(filteredData[0].ActionBy);
+                $("#time").append(filteredData[0].Date);
+                $("#description").append(filteredData[0].Description);
+
+                if (filteredDataType.toLowerCase().indexOf(wordAdd.toLowerCase()) !== -1) {
+                    $("#typeChange").append("Add:");
+
+                    $("#informationChange").append(
+                        '<div class="d-flex flex-column col-12"><div class="mb-1"><span><h7>New:</h7></span></div><pre id="out" class="codeBlock left col-12"></pre></div><div class="d-flex flex-column col-6"><div class="mb-1"><span><h7></h7></span></div><pre id="out2" class="codeBlock left col-12"></pre></div>'
+                    );
+
+                    jdd.compare(
+                        filteredData[0].Change,
+                        filteredData[0].Change
+                    );
+
+                } else if (filteredDataType.toLowerCase().indexOf(wordEdit.toLowerCase()) !== -1) {
+                    $("#typeChange").append("Edit:");
+
+                    $("#informationChange").append(
+                        '<div class="d-flex flex-column col-6"><div class="mb-1"><span><h7>Old:</h7></span></div><pre id="out" class="codeBlock left col-12"></pre></div><div class="d-flex flex-column col-6"><div class="mb-1"><span><h7>New:</h7></span></div><pre id="out2" class="codeBlock right col-12"></pre></div>'
+                    );
+                    console.log(filteredData[0].Change);
+                    jdd.compare(
+                        filteredData[0].ChangeOld,
+                        filteredData[0].ChangeNew
+                    );
+                } else if (filteredDataType.toLowerCase().indexOf(wordDelete.toLowerCase()) !== -1) {
+
+                    $("#typeChange").append("Delete:");
+                    $("#informationChange").append(
+                        '<div class="d-flex flex-column col-12"><div class="mb-1"><span><h7>Old:</h7></span></div><pre id="out" class="codeBlock left col-12"></pre></div><div class="d-flex flex-column col-6"><div class="mb-1"><span><h7></h7></span></div><pre id="out2" class="codeBlock left col-12"></pre></div>'
+                    );
+                    jdd.compare(
+                        filteredData[0].Change,
+                        filteredData[0].Change
+                    );
+                } else {
+                    console.log("Error");
+                }
             });
+
+
         });
     </script>
     <!-- Github buttons -->

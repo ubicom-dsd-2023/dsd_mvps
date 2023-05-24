@@ -41,8 +41,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
-        target="_blank">
+      <a class="navbar-brand m-0" href="../pages/dashboard.html" target="_self">
         <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
       </a>
@@ -320,6 +319,11 @@
   <script>
     $(document).ready(function () {
 
+      let id = null;
+      let pages = 0;
+      let pageNumber = 1;
+      let allRows = null;
+      let actualRows = null;
 
       let updatePageCarousel = function () {
         pageNumber = parseInt($(this).text());
@@ -349,6 +353,7 @@
           } else
             buttons +=
             '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+
         } else if (pageNumber === pages) {
           buttons = "";
           buttons +=
@@ -407,6 +412,7 @@
               } else
                 buttons +=
                 '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+
             } else {
               buttons = "";
               buttons +=
@@ -473,23 +479,27 @@
 
           }
         }
-
       }
 
+
       $.getJSON("http://127.0.0.1:5500/json/databaselogs.json", function (data) {
-        console.log(data.Logs);
         allRows = generateTableRows(data.Logs);
-        console.log(allRows);
-        actualRows = allRows;
+        actualRows = allRows
         let rows1 = actualRows.slice(0, 25);
         $('#table-logs > tbody').append(rows1);
         $("tbody > tr").hover(function () {
           $(this).addClass('table-secondary');
+          id = $(this).attr('id');
         }, function () {
           $(this).removeClass('table-secondary');
         });
         $("tbody > tr > td > span").on("click", function () {
-          location.href = "/pages/showlog.html?id=" + $(this).attr('id');
+          // TODO: verify if the id is not null or undefined or empty
+          if ($(this).attr('id') === "edit") {
+            location.href = "/pages/showlog.html?id=" + id;
+          } else {
+            //error
+          }
         });
       });
 
@@ -497,15 +507,15 @@
         var value = $(this).val().toLowerCase();
         console.log(allRows);
         //filter allRows
-        let filterRows = allRows.filter(function (row) {
+        actualRows = allRows.filter(function (row) {
           return row.toLowerCase().indexOf(value) > -1;
         });
 
-        let numberRaws = filterRows.length;
+        let numberRaws = actualRows.length;
         let pages = Math.ceil(numberRaws / 25);
         pageNumber = 1;
         $('#table-logs > tbody > tr').remove();
-        let rowsButton = filterRows.slice(0, 25);
+        let rowsButton = actualRows.slice(0, 25);
         $('#table-logs > tbody').append(rowsButton);
 
         $('#page-carousel ul li').remove();
@@ -513,8 +523,10 @@
         if (pages === 1) {
           buttons +=
             '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
-          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' + pageNumber + '</a></li>';
-          buttons += '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
+          buttons += '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+            pageNumber + '</a></li>';
+          buttons +=
+            '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
         } else if (pages > 1) {
           buttons +=
             '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
@@ -533,14 +545,23 @@
       });
 
 
+      window.onresize = function (event) {
+        if ($('#addBtn').width() <= 100) {
+          $('#addUserText').html("");
+        } else {
+          $('#addUserText').html("Add User");
+        }
+      };
+
+      // Function to generate the table rows
       function generateTableRows(data) {
         let rows = [];
         let i = 0;
         $.each(data, function (index, log) {
           const infoIcon =
-            '<span id="2" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-info"></i></span>'
+            '<span id="edit" class="text-secondary text-xs font-weight-bold p-1"><i class="fa-solid fa-lg fa-info"></i></span>'
           rows[i] =
-            '<tr>' +
+            '<tr id="' + log.Id + '">' +
             '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><p class="text-xs text-secondary mb-0">' +
             log.Id + '</p></div></div></td>' +
             '<td><div class="d-flex px-2 py-1"><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' +
@@ -552,12 +573,12 @@
             '</tr>';
           i++;
         });
+
         pages = Math.ceil(rows.length / 25);
         let pageButtons = "";
         pageButtons +=
           '<li class="page-item disabled"><a id="previous" class="page-link cursor-pointer"><span>&laquo;</span><span class="sr-only">Previous</span></a></li>';
-        pageButtons +=
-          '<li class="page-item active disabledli"><a class="page-link text-white cursor-pointer">' +
+        pageButtons += '<li class="page-item disabledli active"><a class="page-link text-white cursor-pointer">' +
           1 +
           '</a></li>';
         if (pages > 1) {
@@ -568,7 +589,6 @@
           pageButtons +=
           '<li class="page-item disabled"><a id="next" class="page-link cursor-pointer"><span>&raquo;</span><span class="sr-only">Next</span></a></li>';
 
-
         $('#page-carousel ul').append(pageButtons);
         $("tbody > tr").hover(function () {
           $(this).addClass('table-secondary');
@@ -576,7 +596,12 @@
           $(this).removeClass('table-secondary');
         });
         $("tbody > tr > td > span").on("click", function () {
-          location.href = "/pages/showlog.html?id=" + $(this).attr('id');
+          // TODO: verify if the id is not null or undefined or empty
+          if ($(this).attr('id') === "edit") {
+            location.href = "/pages/showlog.html?id=" + id;
+          } else {
+            //error
+          }
         });
 
         $('#next').click(nextOrPreviousPage);
@@ -584,6 +609,7 @@
         $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
         return rows;
       }
+
 
     });
   </script>

@@ -40,7 +40,8 @@
     <div class="row">
       <div class="col-12">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+        <nav
+          class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="../pages/dashboard.html">
               DSD Management System
@@ -66,18 +67,23 @@
                   <form role="form">
                     <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input id="email" type="email" class="form-control" placeholder="Email" aria-label="Email"
+                        aria-describedby="email-addon">
                     </div>
                     <label>Password</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                      <input id="password" type="password" class="form-control" placeholder="Password"
+                        aria-label="Password" aria-describedby="password-addon">
                     </div>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
+                    <div id="isIncorrect">
+
+                    </div>
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-primary w-100 mt-4 mb-0">Sign in</button>
+                      <button id="login" type="button" class="btn bg-gradient-primary w-100 mt-4 mb-0">Sign in</button>
                     </div>
                   </form>
                 </div>
@@ -85,7 +91,8 @@
             </div>
             <div class="col-md-6">
               <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
+                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
+                  style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
               </div>
             </div>
           </div>
@@ -96,6 +103,8 @@
   <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
   <!--   Core JS Files   -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript" charset="utf-8">
+  </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -108,6 +117,26 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $("#login").click(function () {
+        var email = $("#email").val();
+        var password = $("#password").val();
+        $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+          $.each(data.Manager, function (key, value) {
+            if (email == value.Email && password == value.Password) {
+              window.open("../pages/dashboard.html", "_self");
+            }
+            else {
+              $("#isIncorrect").html("<div class='text-danger'>Email or Password is incorrect</div>");
+            }
+          });
+
+        });
+      });
+    });
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

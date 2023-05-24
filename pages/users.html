@@ -41,8 +41,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
         aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
-        target="_blank">
+      <a class="navbar-brand m-0" href="../pages/dashboard.html" target="_self">
         <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
       </a>
@@ -514,15 +513,15 @@
         var value = $(this).val().toLowerCase();
         console.log(allRows);
         //filter allRows
-        let filterRows = allRows.filter(function (row) {
+        actualRows = allRows.filter(function (row) {
           return row.toLowerCase().indexOf(value) > -1;
         });
 
-        let numberRaws = filterRows.length;
+        let numberRaws = actualRows.length;
         let pages = Math.ceil(numberRaws / 25);
         pageNumber = 1;
         $('#table-users > tbody > tr').remove();
-        let rowsButton = filterRows.slice(0, 25);
+        let rowsButton = actualRows.slice(0, 25);
         $('#table-users > tbody').append(rowsButton);
 
         $('#page-carousel ul li').remove();

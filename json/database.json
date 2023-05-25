@@ -4,16 +4,16 @@
         "Name": "Rui",
         "Email": "test1@test.com",
         "Password": "123",
-        "isLogged": false,
+        "isLogged": true,
         "BirthDate": "03/08/2001",
         "State": true,
-        "Permissions": false
+        "Permissions": true
     },
     {
         "Id": "2",
         "Name": "Tomás",
-        "Email": "test2@test.com",
-        "Password": "superencryptedpassword",
+        "Email": "test3@test.com",
+        "Password": "123",
         "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,

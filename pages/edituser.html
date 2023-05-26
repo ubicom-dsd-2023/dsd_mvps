@@ -230,7 +230,6 @@
         dashboard.href = '../pages/dashboard.html?id=' + id_user;
 
         iconsUser +=
-          '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa fa-user me-sm-1"></i> </a> </li>' +
           '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> </a> </li>' +
           '<li class="nav-item d-xl-none pe-2 d-flex align-items-center"> <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav"> <div class="sidenav-toggler-inner"> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> </div> </a> </li>';
       }
@@ -238,13 +237,12 @@
       $('#logo').append(logo);
       $('#icons-user').append(iconsUser);
 
-      $('#user-id').append(' #' + id_user);
+      $('#user-id').append(' #' + id);
 
       $.getJSON("http://127.0.0.1:5500/json/databaseUsers.json", function(data) {
         $.each(data.Users, function(key, value) {
           if(value.Id === id) {
             //Add user data to the page
-            console.log("1");
             $('#name').val(value.Name);
             $('#email').val(value.Email);
             $('#phone').val(value.PhoneNumber);

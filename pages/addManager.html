@@ -114,7 +114,7 @@
                 aria-describedby="password-addon">
             </div>
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="admin" checked="">
+              <input class="form-check-input" type="checkbox" id="admin">
               <label class="form-check-label" for="rememberMe">Admin</label>
             </div>
             <div class="text-center">
@@ -177,8 +177,7 @@
   </script>
 
   <script>
-
-$(document).ready(function () {
+    $(document).ready(function () {
       const url_string = window.location.href;
       const url = new URL(url_string);
       const id_user = url.searchParams.get("id");
@@ -228,7 +227,6 @@ $(document).ready(function () {
         dashboard.href = '../pages/dashboard.html?id=' + id_user;
 
         iconsUser +=
-          '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa fa-user me-sm-1"></i> </a> </li>' +
           '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> </a> </li>' +
           '<li class="nav-item d-xl-none pe-2 d-flex align-items-center"> <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav"> <div class="sidenav-toggler-inner"> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> </div> </a> </li>';
       }
@@ -237,56 +235,55 @@ $(document).ready(function () {
       $('#icons-user').append(iconsUser);
 
       $('#addManager').click(function () {
-      let name = $('input[aria-label="Name"]').val();
-      let email = $('input[aria-label="Email"]').val();
-      let date = $('input[type="date"]').val();
-      let password = $('input[aria-label="Password"]').val();
-      let isAdmin = $('#admin').is(':checked');
+        let name = $('input[aria-label="Name"]').val();
+        let email = $('input[aria-label="Email"]').val();
+        let date = $('input[type="date"]').val();
+        let password = $('input[aria-label="Password"]').val();
+        let isAdmin = $('#admin').is(':checked');
 
-      // Create a new manager object
-      let newManager = {
-        Id: 95,
-        Name: name,
-        Email: email,
-        Password: password,
-        isLogged: false,
-        BirthDate: date,
-        State: true,
-        Permissions: isAdmin
-      };
+        // Create a new manager object
+        let newManager = {
+          Id: 95,
+          Name: name,
+          Email: email,
+          Password: password,
+          isLogged: false,
+          BirthDate: date,
+          State: true,
+          Permissions: isAdmin
+        };
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
-        // Get the array of managers
-
-
-        let managers = data.Manager;
+        $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+          // Get the array of managers
 
 
-        managers.push(newManager);
+          let managers = data.Manager;
 
-        let updatedJsonData = JSON.stringify(managers);
 
-        $.ajax({
-          type: "POST",
-          dataType: 'json',
-          async: false,
-          url: 'http://127.0.0.1:5500/json/database.json',
-          data: {
-            data: updatedJsonData
-          },
-          success: function () {
-            alert("Thanks!");
-          },
-          failure: function () {
-            alert("Error!");
-          }
+          managers.push(newManager);
+
+          let updatedJsonData = JSON.stringify(managers);
+
+          $.ajax({
+            type: "POST",
+            dataType: 'json',
+            async: false,
+            url: 'http://127.0.0.1:5500/json/database.json',
+            data: {
+              data: updatedJsonData
+            },
+            success: function () {
+              alert("Thanks!");
+            },
+            failure: function () {
+              alert("Error!");
+            }
+          });
         });
+
       });
 
     });
-
-    });
-
   </script>
 
   <!-- Github buttons -->

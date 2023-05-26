@@ -7,7 +7,7 @@
             "Date": "2017-01-01",
             "Description": "Added a new user",
             "ChangeNew": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}",
-            "ChangeOld": "{\"name\": \"\",\"age\": ,\"address\": {\"street\": \"\",\"number\": ,\"city\": \"\"}}"
+            "ChangeOld": "{}"
         },
         {
             "Id": "2",
@@ -24,7 +24,8 @@
             "ActionBy": "Tomas",
             "Date": "2017-01-01",
             "Description": "Added a new user",
-            "Change": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}"
+            "ChangeNew": "{}",
+            "ChangeOld": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}"
         },
         {
             "Id": "4",

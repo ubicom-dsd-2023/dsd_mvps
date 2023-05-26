@@ -56,8 +56,8 @@ pre.codeBlock.codeBlock span.code, div.codeBlock span.code {
 
 pre.codeBlock .line-number, div.codeBlock .line-number {
   margin:0 1em 0 -1em;
-  border-right:1px solid #eee;
-  color: #bbb;
+  border-right:1px solid #b0b0b0;
+  color: #8a8a8a;
   text-align:right;
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */

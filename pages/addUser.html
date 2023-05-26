@@ -185,7 +185,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://dsd-ubicom.netlify.app/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -255,7 +255,7 @@
           Password: password,
         };
 
-        $.getJSON("http://dsd-ubicom.netlify.app/json/databaseUsers.json", function (data) {
+        $.getJSON("https://dsd-ubicom.netlify.app/json/databaseUsers.json", function (data) {
           // Get the array of users
 
           let users = data.Users;
@@ -266,7 +266,7 @@
             type: "POST",
             dataType: 'json',
             async: false,
-            url: 'http://dsd-ubicom.netlify.app/json/databaseUsers.json',
+            url: 'https://dsd-ubicom.netlify.app/json/databaseUsers.json',
             data: {
               data: updatedJsonData
             },

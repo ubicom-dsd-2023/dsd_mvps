@@ -190,7 +190,7 @@
       let asideUL = '';
       let searchButton = '';
 
-      $.getJSON("http://dsd-ubicom.netlify.app/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -532,7 +532,7 @@
       }
 
 
-      $.getJSON("http://dsd-ubicom.netlify.app/json/databaseUsers.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/databaseUsers.json", function (data) {
         allRows = generateTableRows(data.Users);
         actualRows = allRows
         let rows1 = actualRows.slice(0, 25);

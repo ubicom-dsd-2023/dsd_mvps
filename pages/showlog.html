@@ -211,7 +211,7 @@
 
             let asideUL = '';
 
-            $.getJSON("http://dsd-ubicom.netlify.app/json/database.json", function (data) {
+            $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
                 $.each(data.Manager, function (key, value) {
                     if (id_user === value.Id) {
                         if (value.Permissions == true) {
@@ -273,7 +273,7 @@
                 .searchParams.get(
                     "id") + '</h6>');
 
-            $.getJSON("http://dsd-ubicom.netlify.app/json/databaselogs.json", function (data) {
+            $.getJSON("https://dsd-ubicom.netlify.app/json/databaselogs.json", function (data) {
                 //return object when id equal to current url id
                 filteredData = data.Logs.filter(function (entry) {
                     return entry.Id == currentUrl.searchParams.get("user");

@@ -185,7 +185,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://dsd-ubicom.netlify.app/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -253,7 +253,7 @@
           Permissions: isAdmin
         };
 
-        $.getJSON("http://dsd-ubicom.netlify.app/json/database.json", function (data) {
+        $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
           // Get the array of managers
 
 
@@ -268,7 +268,7 @@
             type: "POST",
             dataType: 'json',
             async: false,
-            url: 'http://dsd-ubicom.netlify.app/json/database.json',
+            url: 'https://dsd-ubicom.netlify.app/json/database.json',
             data: {
               data: updatedJsonData
             },

@@ -93,56 +93,45 @@
       </div>
     </nav>
     <!-- End Navbar -->
-
-    <div class="container py-4">
-
-      <style>
-        .chart {
-          display: inline-block;
-          width: 300px;
-          height: 250px;
-          margin: 10px;
-          border: 1px solid #ddd;
-        }
-
-        .chart h4 {
-          margin-top: 0;
-          padding: 10px;
-          background-color: #f5f5f5;
-          border-bottom: 1px solid #ddd;
-        }
-      </style>
-
-      <div class="row">
-        <div class="col-12">
-          <div class="chart">
-            <h4>Sensor 1</h2>
-              <canvas id="sensor1"></canvas>
-          </div>
-          <div class="chart">
-            <h4>Sensor 2</h2>
-              <canvas id="sensor2"></canvas>
-          </div>
-          <div class="chart">
-            <h4>Sensor 3</h2>
-              <canvas id="sensor3"></canvas>
-          </div>
-          <div class="chart">
-            <h4>Sensor 4</h2>
-              <canvas id="sensor4"></canvas>
-          </div>
-          <div class="chart">
-            <h4>Sensor 5</h2>
-              <canvas id="sensor5"></canvas>
-          </div>
-          <div class="chart">
-            <h4>Sensor 6</h2>
-              <canvas id="sensor6"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <!--chart plot-->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
+    <script>
+      // This function retrieves and parses the returned data, draws a chart based on the data, 
+      // and updates the contents of the text box
+      function showModel() {
+        // get data and parse
+        var data = ""; // Fill in the obtained data
+        var isSpecialized = ""; // Parse the data to determine whether to specialize the model
+        var svm = "SVM"; 
+  
+        // update the content in the textfield
+        document.getElementById("text-box1").value = isSpecialized;
+        document.getElementById("text-box2").value = svm;
+  
+        // plot chart
+        var chartData = ""; // parse the data to get the data
+        var chartDom = document.getElementById('chart');
+        var myChart = echarts.init(chartDom);
+        var option = {
+          // configuration
+          // ...
+          series: [{
+            type: 'line',
+            data: chartData
+          }]
+        };
+        myChart.setOption(option);
+  
+      }
+    </script>
+    <h1>Model Show</h1>
+    <p>Is it special or generalize model ? </p>
+    <input type="text" id="text-box1">
+    <p>The algorithm of the model use :</p>
+    <input type="text" id="text-box2">
+    <div id="chart" style="width: 600px; height: 400px;"></div>
+    <button onclick="showModel()">Show Model</button>
+    <!--chart end-->
     <footer class="footer pt-3  ">
       <div class="container-fluid">
         <div class="row align-items-center justify-content-lg-between">

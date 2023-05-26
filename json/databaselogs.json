@@ -6,7 +6,8 @@
             "ActionBy": "Rui",
             "Date": "2017-01-01",
             "Description": "Added a new user",
-            "Change": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}"
+            "ChangeNew": "{\"name\": \"John Doe\",\"age\": 30,\"address\": {\"street\": \"Main Street\",\"number\": 123,\"city\": \"New York\"}}",
+            "ChangeOld": "{\"name\": \"\",\"age\": ,\"address\": {\"street\": \"\",\"number\": ,\"city\": \"\"}}"
         },
         {
             "Id": "2",

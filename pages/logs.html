@@ -428,7 +428,7 @@
         $("tbody > tr > td > span").on("click", function () {
           // TODO: verify if the id is not null or undefined or empty
           if ($(this).attr('id') === "edit") {
-            location.href = "/pages/showlog.html?id=" + id;
+            location.href = "/pages/showlog.html?id=" + id_user + "&user=" + id;
           } else {
             //error
           }

@@ -22,12 +22,12 @@
     {
         "Id": "3",
         "Name": "Tiago",
-        "Email": "test2@test.com",
-        "Password": "superencryptedpassword",
+        "Email": "test6@test.com",
+        "Password": "123",
         "isLogged": false,
         "BirthDate": "10/04/2001",
         "State": true,
-        "Permissions": false
+        "Permissions": true
     },
     {
         "Id": "4",

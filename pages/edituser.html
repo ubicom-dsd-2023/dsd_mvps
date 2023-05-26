@@ -188,7 +188,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+      $.getJSON("http://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -239,7 +239,7 @@
 
       $('#user-id').append(' #' + id);
 
-      $.getJSON("http://127.0.0.1:5500/json/databaseUsers.json", function(data) {
+      $.getJSON("http://dsd-ubicom.netlify.app/json/databaseUsers.json", function(data) {
         $.each(data.Users, function(key, value) {
           if(value.Id === id) {
             //Add user data to the page

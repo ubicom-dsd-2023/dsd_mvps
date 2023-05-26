@@ -199,7 +199,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+      $.getJSON("http://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -456,7 +456,7 @@
       }
 
 
-      $.getJSON("http://127.0.0.1:5500/json/databaselogs.json", function (data) {
+      $.getJSON("http://dsd-ubicom.netlify.app/json/databaselogs.json", function (data) {
         allRows = generateTableRows(data.Logs);
         actualRows = allRows
         let rows1 = actualRows.slice(0, 25);

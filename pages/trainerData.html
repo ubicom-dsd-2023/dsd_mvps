@@ -20,6 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <title>
     Soft UI Dashboard by Creative Tim
   </title>
@@ -101,36 +102,32 @@
       function showModel() {
         // get data and parse
         var data = ""; // Fill in the obtained data
-        var isSpecialized = ""; // Parse the data to determine whether to specialize the model
+        var isSpecialized = "specialized"; // Parse the data to determine whether to specialize the model
         var svm = "SVM"; 
   
         // update the content in the textfield
         document.getElementById("text-box1").value = isSpecialized;
         document.getElementById("text-box2").value = svm;
-  
-        // plot chart
-        var chartData = ""; // parse the data to get the data
-        var chartDom = document.getElementById('chart');
-        var myChart = echarts.init(chartDom);
-        var option = {
-          // configuration
-          // ...
-          series: [{
-            type: 'line',
-            data: chartData
-          }]
-        };
-        myChart.setOption(option);
+        
+        
   
       }
     </script>
-    <h1>Model Show</h1>
-    <p>Is it special or generalize model ? </p>
-    <input type="text" id="text-box1">
-    <p>The algorithm of the model use :</p>
-    <input type="text" id="text-box2">
-    <div id="chart" style="width: 600px; height: 400px;"></div>
-    <button onclick="showModel()">Show Model</button>
+    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+      <h1 class="font-weight-bolder text-primary text-gradient">Model Show</h1>
+      <div class="card-body">
+        <p>The model is generalized or specialized </p>
+        <input type="text" id="text-box1">
+        <p>The algorithm of the model use :</p>
+        <input type="text" id="text-box2">
+      </div>
+      
+    </div>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <script src="../assets/js/train.js"></script>
+    <div class="d-flex flex-column mx-auto">
+      <button onclick="showModel()">Show Model</button>
+    </div>
     <!--chart end-->
     <footer class="footer pt-3  ">
       <div class="container-fluid">
@@ -169,6 +166,7 @@
     </footer>
   </main>
   <!--   Core JS Files   -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript" charset="utf-8">
   </script>
   <script src="../assets/js/core/popper.min.js"></script>

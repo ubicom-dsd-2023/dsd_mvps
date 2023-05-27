@@ -198,7 +198,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -215,7 +215,10 @@
         });
       });
 
-      $('#search-button').append('<div id="addBtn" class="col-2 text-end text-nowrap"> <a href="../pages/addManager.html?id=' + id_user + '" class="btn bg-gradient-success px-3 mb-0" tabindex="-1" role="button" aria-disabled="true"> <i class="fa-sharp fa-solid fa-plus"></i> <span id="addUserText">Add Manager</span> </a> </div>');
+      $('#search-button').append(
+        '<div id="addBtn" class="col-2 text-end text-nowrap"> <a href="../pages/addManager.html?id=' + id_user +
+        '" class="btn bg-gradient-success px-3 mb-0" tabindex="-1" role="button" aria-disabled="true"> <i class="fa-sharp fa-solid fa-plus"></i> <span id="addUserText">Add Manager</span> </a> </div>'
+      );
 
       let iconsUser = '';
       let asideUL2 = '';
@@ -241,7 +244,6 @@
         dashboard.href = '../pages/dashboard.html?id=' + id_user;
 
         iconsUser +=
-          '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa fa-user me-sm-1"></i> </a> </li>' +
           '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> </a> </li>' +
           '<li class="nav-item d-xl-none pe-2 d-flex align-items-center"> <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav"> <div class="sidenav-toggler-inner"> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> </div> </a> </li>';
       }
@@ -314,6 +316,20 @@
         $('#next').click(nextOrPreviousPage);
         $('#previous').click(nextOrPreviousPage);
         $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+        $("tbody > tr").hover(function () {
+          $(this).addClass('table-secondary');
+          id = $(this).attr('id');
+        }, function () {
+          $(this).removeClass('table-secondary');
+        });
+        $("tbody > tr > td > span").on("click", function () {
+          // TODO: verify if the id is not null or undefined or empty
+          if ($(this).attr('id') === "edit") {
+            location.href = "/pages/editManager.html?id=" + id_user + "&user=" + id;
+          } else {
+            //error
+          }
+        });
       }
 
       let nextOrPreviousPage = function () {
@@ -360,6 +376,14 @@
             $('#next').click(nextOrPreviousPage);
             $('#previous').click(nextOrPreviousPage);
             $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+            $("tbody > tr > td > span").on("click", function () {
+              // TODO: verify if the id is not null or undefined or empty
+              if ($(this).attr('id') === "edit") {
+                location.href = "/pages/editManager.html?id=" + id_user + "&user=" + id;
+              } else {
+                //error
+              }
+            });
           }
 
         } else {
@@ -411,7 +435,7 @@
 
       }
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         allRows = generateTableRows(data.Manager);
         actualRows = allRows;
         let rows1 = actualRows.slice(0, 25);
@@ -425,7 +449,7 @@
         $("tbody > tr > td > span").on("click", function () {
           // TODO: verify if the id is not null or undefined or empty
           if ($(this).attr('id') === "edit") {
-            location.href = "/pages/editManager.html?id=" + id_user + "user=" + id;
+            location.href = "/pages/editManager.html?id=" + id_user + "&user=" + id;
           } else {
             //error
           }
@@ -471,6 +495,20 @@
         $('#next').click(nextOrPreviousPage);
         $('#previous').click(nextOrPreviousPage);
         $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+        $("tbody > tr").hover(function () {
+          $(this).addClass('table-secondary');
+          id = $(this).attr('id');
+        }, function () {
+          $(this).removeClass('table-secondary');
+        });
+        $("tbody > tr > td > span").on("click", function () {
+          // TODO: verify if the id is not null or undefined or empty
+          if ($(this).attr('id') === "edit") {
+            location.href = "/pages/editManager.html?id=" + id_user + "&user=" + id;
+          } else {
+            //error
+          }
+        });
       });
 
 
@@ -523,6 +561,7 @@
         $('#page-carousel ul').append(pageButtons);
         $("tbody > tr").hover(function () {
           $(this).addClass('table-secondary');
+          id = $(this).attr('id');
         }, function () {
           $(this).removeClass('table-secondary');
         });
@@ -530,6 +569,8 @@
         $('#next').click(nextOrPreviousPage);
         $('#previous').click(nextOrPreviousPage);
         $('#page-carousel ul li a:not(#previous, #next)').click(updatePageCarousel);
+
+
         return rows;
       }
 

@@ -185,7 +185,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -227,7 +227,6 @@
         dashboard.href = '../pages/dashboard.html?id=' + id_user;
 
         iconsUser +=
-          '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa fa-user me-sm-1"></i> </a> </li>' +
           '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> </a> </li>' +
           '<li class="nav-item d-xl-none pe-2 d-flex align-items-center"> <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav"> <div class="sidenav-toggler-inner"> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> </div> </a> </li>';
       }
@@ -256,7 +255,7 @@
           Password: password,
         };
 
-        $.getJSON("http://127.0.0.1:5500/json/databaseUsers.json", function (data) {
+        $.getJSON("https://dsd-ubicom.netlify.app/json/databaseUsers.json", function (data) {
           // Get the array of users
 
           let users = data.Users;
@@ -267,7 +266,7 @@
             type: "POST",
             dataType: 'json',
             async: false,
-            url: 'http://127.0.0.1:5500/json/databaseUsers.json',
+            url: 'https://dsd-ubicom.netlify.app/json/databaseUsers.json',
             data: {
               data: updatedJsonData
             },

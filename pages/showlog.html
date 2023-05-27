@@ -211,7 +211,7 @@
 
             let asideUL = '';
 
-            $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+            $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
                 $.each(data.Manager, function (key, value) {
                     if (id_user === value.Id) {
                         if (value.Permissions == true) {
@@ -254,7 +254,6 @@
                 dashboard.href = '../pages/dashboard.html?id=' + id_user;
 
                 iconsUser +=
-                    '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa fa-user me-sm-1"></i> </a> </li>' +
                     '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> </a> </li>' +
                     '<li class="nav-item d-xl-none pe-2 d-flex align-items-center"> <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav"> <div class="sidenav-toggler-inner"> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> </div> </a> </li>';
             }
@@ -274,7 +273,7 @@
                 .searchParams.get(
                     "id") + '</h6>');
 
-            $.getJSON("http://127.0.0.1:5500/json/databaselogs.json", function (data) {
+            $.getJSON("https://dsd-ubicom.netlify.app/json/databaselogs.json", function (data) {
                 //return object when id equal to current url id
                 filteredData = data.Logs.filter(function (entry) {
                     return entry.Id == currentUrl.searchParams.get("user");
@@ -293,10 +292,16 @@
                         '<div class="d-flex flex-column col-12"><div class="mb-1"><span><h7>New:</h7></span></div><pre id="out" class="codeBlock left col-12"></pre></div><div class="d-flex flex-column col-6"><div class="mb-1"><span><h7></h7></span></div><pre id="out2" class="codeBlock left col-12"></pre></div>'
                     );
 
-                    jdd.compare(
-                        filteredData[0].ChangeNew,
-                        filteredData[0].ChangeOld
-                    );
+                    const unescapedObject = JSON.parse(filteredData[0].ChangeNew);
+                    const formattedString = JSON.stringify(unescapedObject, null, 4);
+                    const lines = formattedString.split("\n");
+
+                    $('#informationChange').append('<div class="d-flex flex-column col-6"><div class="mb-1"><span><h7>New:</h7></span></div><pre class="codeBlock left col-12" id="out"></pre></div>');
+                    $('#out').append('<div id="gut" class="gutter"></div><div id="code"></div>');
+                    for (let i = 1; i <= lines.length; i++) {
+                        $('#gut').append('<span class="line-number">' + i + '.</span>');
+                        $('#code').append('<div class="codeLine line' + i + '"><span class="code">' + lines[i - 1] + '</span></div>')
+                    }
 
                 } else if (filteredDataType.toLowerCase().indexOf(wordEdit.toLowerCase()) !== -1) {
                     $("#typeChange").append("Edit:");
@@ -304,7 +309,6 @@
                     $("#informationChange").append(
                         '<div class="d-flex flex-column col-6"><div class="mb-1"><span><h7>Old:</h7></span></div><pre id="out" class="codeBlock left col-12"></pre></div><div class="d-flex flex-column col-6"><div class="mb-1"><span><h7>New:</h7></span></div><pre id="out2" class="codeBlock right col-12"></pre></div>'
                     );
-                    console.log(filteredData[0].Change);
                     jdd.compare(
                         filteredData[0].ChangeOld,
                         filteredData[0].ChangeNew
@@ -315,14 +319,21 @@
                     $("#informationChange").append(
                         '<div class="d-flex flex-column col-12"><div class="mb-1"><span><h7>Old:</h7></span></div><pre id="out" class="codeBlock left col-12"></pre></div><div class="d-flex flex-column col-6"><div class="mb-1"><span><h7></h7></span></div><pre id="out2" class="codeBlock left col-12"></pre></div>'
                     );
-                    jdd.compare(
-                        filteredData[0].Change,
-                        filteredData[0].Change
-                    );
+
+                    const unescapedObject = JSON.parse(filteredData[0].ChangeOld);
+                    const formattedString = JSON.stringify(unescapedObject, null, 4);
+                    const lines = formattedString.split("\n");
+                    $('#informationChange').append('<div class="d-flex flex-column col-6"><div class="mb-1"><span><h7>New:</h7></span></div><pre class="codeBlock left col-12" id="out"></pre></div>');
+                    $('#out').append('<div id="gut" class="gutter"></div><div id="code"></div>');
+                    for (let i = 1; i <= lines.length; i++) {
+                        $('#gut').append('<span class="line-number">' + i + '.</span>');
+                        $('#code').append('<div class="codeLine line' + i + '"><span class="code">' + lines[i - 1] + '</span></div>')
+                    }
                 } else {
                     console.log("Error");
                 }
             });
+
 
 
         });

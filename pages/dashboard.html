@@ -123,7 +123,7 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">New Users</p>
                     <h5 class="font-weight-bolder mb-0">
-                      +100
+                      0
                     </h5>
                   </div>
                 </div>
@@ -223,7 +223,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -266,7 +266,6 @@
         dashboard.href = '../pages/dashboard.html?id=' + id_user;
 
         iconsUser +=
-          '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa fa-user me-sm-1"></i> </a> </li>' +
           '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> </a> </li>' +
           '<li class="nav-item d-xl-none pe-2 d-flex align-items-center"> <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav"> <div class="sidenav-toggler-inner"> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> </div> </a> </li>';
       }
@@ -282,7 +281,7 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
       }
 
-      $.getJSON("http://127.0.0.1:5500/json/databaseUsers.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/databaseUsers.json", function (data) {
         $('#user-numbers').append(data.Users.length);
       });
 

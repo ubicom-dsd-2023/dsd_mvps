@@ -20,6 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <title>
     Soft UI Dashboard by Creative Tim
   </title>
@@ -95,42 +96,24 @@
     <!-- End Navbar -->
     <!--chart plot-->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.1/dist/echarts.min.js"></script>
-    <script>
-      // This function retrieves and parses the returned data, draws a chart based on the data, 
-      // and updates the contents of the text box
-      function showModel() {
-        // get data and parse
-        var data = ""; // Fill in the obtained data
-        var isSpecialized = ""; // Parse the data to determine whether to specialize the model
-        var svm = "SVM"; 
-  
-        // update the content in the textfield
-        document.getElementById("text-box1").value = isSpecialized;
-        document.getElementById("text-box2").value = svm;
-  
-        // plot chart
-        var chartData = ""; // parse the data to get the data
-        var chartDom = document.getElementById('chart');
-        var myChart = echarts.init(chartDom);
-        var option = {
-          // configuration
-          // ...
-          series: [{
-            type: 'line',
-            data: chartData
-          }]
-        };
-        myChart.setOption(option);
-  
-      }
-    </script>
-    <h1>Model Show</h1>
-    <p>Is it special or generalize model ? </p>
-    <input type="text" id="text-box1">
-    <p>The algorithm of the model use :</p>
-    <input type="text" id="text-box2">
-    <div id="chart" style="width: 600px; height: 400px;"></div>
-    <button onclick="showModel()">Show Model</button>
+    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+      <h1 class="font-weight-bolder text-primary text-gradient">Model Show</h1>
+      <div class="card-body">
+        <span>
+          <h6>The model is generalized or specialized </h6>
+        </span>
+          <span id="type" class="font-weight-bolder">specialized</span>
+        <span>
+          <h6>The algorithm of the model use :</h6>
+        </span>
+          <span id="type" class="font-weight-bolder">SVM</span>
+        
+      </div>
+      
+    </div>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <script src="../assets/js/train.js"></script>
+
     <!--chart end-->
     <footer class="footer pt-3  ">
       <div class="container-fluid">
@@ -169,6 +152,7 @@
     </footer>
   </main>
   <!--   Core JS Files   -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" type="text/javascript" charset="utf-8">
   </script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -194,7 +178,7 @@
 
       let asideUL = '';
 
-      $.getJSON("http://127.0.0.1:5500/json/database.json", function (data) {
+      $.getJSON("https://dsd-ubicom.netlify.app/json/database.json", function (data) {
         $.each(data.Manager, function (key, value) {
           if (id_user === value.Id) {
             if (value.Permissions == true) {
@@ -236,7 +220,6 @@
         dashboard.href = '../pages/dashboard.html?id=' + id_user;
 
         iconsUser +=
-          '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa fa-user me-sm-1"></i> </a> </li>' +
           '<li class="nav-item pe-2 d-flex align-items-center"> <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0"> <i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i> </a> </li>' +
           '<li class="nav-item d-xl-none pe-2 d-flex align-items-center"> <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav"> <div class="sidenav-toggler-inner"> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> <i class="sidenav-toggler-line"></i> </div> </a> </li>';
       }
